@@ -33,5 +33,8 @@ class RegionSeeder extends Seeder
             array('id' => '21','city_id' => '1','title' => '21','active' => '0','created_at' => '2024-08-05 19:44:37','updated_at' => '2024-08-05 19:44:37'),
             array('id' => '22','city_id' => '1','title' => '22','active' => '0','created_at' => '2024-08-05 19:44:37','updated_at' => '2024-08-05 19:44:37'),
         );
+        foreach ($data as $item) {
+            \App\Models\Region::create($item);
+        }
     }
 }
