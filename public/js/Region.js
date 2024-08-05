@@ -1047,7 +1047,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Region_vue_vue_type_template_id_76f70dc9_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Region.vue?vue&type=template&id=76f70dc9&scoped=true */ "./resources/js/components/panel/region/Region.vue?vue&type=template&id=76f70dc9&scoped=true");
 /* harmony import */ var _Region_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Region.vue?vue&type=script&lang=js */ "./resources/js/components/panel/region/Region.vue?vue&type=script&lang=js");
 /* harmony import */ var _Region_vue_vue_type_style_index_0_id_76f70dc9_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Region.vue?vue&type=style&index=0&id=76f70dc9&scoped=true&lang=css */ "./resources/js/components/panel/region/Region.vue?vue&type=style&index=0&id=76f70dc9&scoped=true&lang=css");
-/* harmony import */ var F_PROJECTS_2024_ShelfMonitoring_panel_shelf_monitoring_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var F_PROJECTS_2024_ShelfMonitoring_panel_shelf_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
@@ -1055,7 +1055,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2024_ShelfMonitoring_panel_shelf_monitoring_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Region_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Region_vue_vue_type_template_id_76f70dc9_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-76f70dc9"],['__file',"resources/js/components/panel/region/Region.vue"]])
+const __exports__ = /*#__PURE__*/(0,F_PROJECTS_2024_ShelfMonitoring_panel_shelf_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Region_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Region_vue_vue_type_template_id_76f70dc9_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-76f70dc9"],['__file',"resources/js/components/panel/region/Region.vue"]])
 /* hot reload */
 if (false) {}
 

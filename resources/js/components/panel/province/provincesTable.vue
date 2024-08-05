@@ -17,7 +17,7 @@
                     :data-index="index">
                     <td class="table-first-cell" scope="row">{{ index + 1 }}</td>
                     <td>
-                        <router-link :to="'/panel/product/'+data.id">{{ data.title }}</router-link>
+                        <router-link :to="'/panel/province/'+data.id">{{ data.title }}</router-link>
                     </td>
                     <td class="d-none d-md-table-cell date_cell">{{ data.created_at }}</td>
                     <td class="active_cell">
@@ -32,11 +32,11 @@
                         </span>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                             <li>
-                                <router-link :to="'/panel/product/'+data.id" class="dropdown-item"
+                                <router-link :to="'/panel/province/'+data.id" class="dropdown-item"
                                              style="text-align: right !important">
                                     مشاهده
                                 </router-link>
-                                <router-link :to="'/panel/edit/product/'+data.id"
+                                <router-link :to="'/panel/edit/province/'+data.id"
                                              class="dropdown-item"
                                              style="text-align: right !important">
                                     ویرایش
