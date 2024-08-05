@@ -10,11 +10,10 @@ class UserSeeder extends Seeder
     public function run()
     {
         $data = array(
-            array('id' => '1','name' => 'رکسانا','email' => 'ms.roxanarahimi@gmail.com','email_verified_at' => NULL,'mobile' => '09128222725','password' => '$2y$10$nS5CsJ3c6e7496FbwAgyPu34Xc/QdbuN8YHciSgwej8TlgH.5J6my','gender' => 'female','avatar' => NULL,'scope' => 'admin','remember_token' => NULL,'last_activity' => '2022-04-09 21:02:37','created_at' => '2021-12-30 18:03:40','updated_at' => '2022-04-09 21:02:37'),
-            array('id' => '2','name' => 'رویا','email' => 'new@new.com','email_verified_at' => NULL,'mobile' => '09190691798','password' => '$2y$10$SoWPSibbykZXEhCldlq87Oj0goG1d/v9JGVrWfLlc9N2HYo9A.dui','gender' => 'female','avatar' => NULL,'scope' => 'user','remember_token' => NULL,'last_activity' => '2022-03-06 03:30:35','created_at' => '2021-12-30 18:03:40','updated_at' => '2022-03-06 01:30:35'),
-            array('id' => '3','name' => 'محمد','email' => 'a@bnm.com','email_verified_at' => NULL,'mobile' => '09032313681','password' => '$2y$10$hzUQbvn0.OKBb9ypHJ/nSOoXAenbvONIGib4awYAfquQOcXkECyau','gender' => 'male','avatar' => NULL,'scope' => 'user','remember_token' => NULL,'last_activity' => '2022-02-26 17:51:54','created_at' => '2022-02-18 02:22:40','updated_at' => '2022-03-03 09:26:02')
+            array('id' => '1', 'name' => 'رکسانا', 'email' => 'ms.roxanarahimi@gmail.com', 'mobile' => '09128222725', 'gender' => 'female', 'avatar' => NULL, 'email_verified_at' => NULL, 'password' => '$2y$10$nS5CsJ3c6e7496FbwAgyPu34Xc/QdbuN8YHciSgwej8TlgH.5J6my', 'scope' => 'admin', 'last_activity' => '2024-08-05 00:51:12', 'remember_token' => NULL, 'created_at' => '2021-12-30 14:33:40', 'updated_at' => '2024-08-04 22:51:12'),
+            array('id' => '2', 'name' => 'واحد مارکتینگ', 'email' => 'marketing', 'mobile' => '', 'gender' => NULL, 'avatar' => NULL, 'email_verified_at' => NULL, 'password' => '$2y$10$8xVfbgUKoFhGhDcwWJgGp.d.xcP81aCtFv0C.KebE8ToAeVxG0Poi', 'scope' => 'admin', 'last_activity' => '2024-07-15 20:46:01', 'remember_token' => NULL, 'created_at' => '2023-07-13 18:14:24', 'updated_at' => '2024-07-15 17:16:01')
         );
-        foreach ($data as $item){
+        foreach ($data as $item) {
             \App\Models\User::create($item);
         }
     }
