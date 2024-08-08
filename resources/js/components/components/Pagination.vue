@@ -5,10 +5,40 @@
             <span class="paginate-btn" @click="prevPage()"
                   :class="{'text-muted': (currentPage <= 1 ),  'fw-bold pointer': currentPage > 1}">قبلی</span>
                <br class="d-md-none">
-               <span  :class="{'text-primary': item == currentPage}" :id="'page_'+item "
-                     v-for="item in labels" :key="item" @click="goToPage(item)"
-                     class="paginate-btn pointer fs-6 fw-bold page_number mx-3 ">{{ item }}</span>
+
+
+               <div>
+                     <span  :class="{'text-primary': currentPage == 1 }" :id="'page_1' "
+                             @click="goToPage(1)"
+                            class="paginate-btn pointer fs-6 fw-bold page_number mx-3 ">{{ 1 }}</span>
+
+<!--                     <span  :class="{'text-primary': item == currentPage}" :id="'page_'+item "-->
+<!--                            v-for="item in labels" :key="item" @click="goToPage(item)"-->
+<!--                            class="paginate-btn pointer fs-6 fw-bold page_number mx-3 ">{{ item }}</span>-->
+
+
+                   <span class="paginate-btn pointer fs-6 fw-bold page_number mx-3 ">...</span>
+
+                   <span v-if="currentPage!=1 && currentPage != labels.length"  :class="{'text-primary': currentPage == currentPage }" :id="'page_'+currentPage "
+                          @click="goToPage(currentPage)"
+                          class="paginate-btn pointer fs-6 fw-bold page_number mx-3 ">{{ currentPage }}</span>
+
+
+                   <span v-if="currentPage!=1 && currentPage != labels.length" class="paginate-btn pointer fs-6 fw-bold page_number mx-3 ">...</span>
+
+
+
+                   <span  :class="{'text-primary': currentPage == labels.length }" :id="'page_'+labels.length "
+                          @click="goToPage(labels.length)"
+                          class="paginate-btn pointer fs-6 fw-bold page_number mx-3 ">{{ labels.length }}</span>
+               </div>
+
+
+
+
+
                <br class="d-md-none">
+
                <span class="paginate-btn" @click="nextPage()"
                      :class="{'text-muted': currentPage >= pages, 'fw-bold pointer': currentPage < pages}">بعدی</span>
            </nav>

@@ -15,7 +15,7 @@ class CustomerController extends Controller
         try {
             $perPage = $request['perPage'];
             $data = Customer::orderByDesc('id')
-                ->where('name', 'Like', '%' . $request['search'] . '%')->paginate($perPage);
+                ->where('code', 'Like', '%' . $request['search'] . '%')->paginate($perPage);
             $pages_count = ceil($data->total() / $perPage);
             $labels = [];
             for ($i = 1; $i <= $pages_count; $i++) {

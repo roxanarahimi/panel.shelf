@@ -28,9 +28,9 @@
                     </td>
                     <td>{{ data.name }}</td>
                     <td>{{ data.mobile }}</td>
-                    <td>{{ data.shop_name }}</td>
-                    <td>{{ data.province.title }}</td>
-                    <td>{{ data.city.title }}</td>
+                    <td>{{ data.name }}</td>
+                    <td>{{ data.province?.title }}</td>
+                    <td>{{ data.city?.title }}</td>
 
                     <td class="d-none d-md-table-cell date_cell">{{ data.created_at }}</td>
                     <td class="active_cell">

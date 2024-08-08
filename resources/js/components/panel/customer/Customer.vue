@@ -22,7 +22,6 @@
                         <p><b>کد مشتری </b>{{ data.code }}</p>
                         <p><b>موبایل </b>{{ data.mobile }}</p>
                         <p><b>تلفن </b>{{ data.phone }}</p>
-                        <p><b>نام فروشگاه </b>{{ data.shop_name }}</p>
 
                         <p><b>ادرس </b>{{ data.address }}</p>
                         <p><b>محله </b>{{ data.sector.title }}</p>

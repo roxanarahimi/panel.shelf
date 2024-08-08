@@ -9,6 +9,10 @@ class Customer extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    public function region()
+    {
+        return $this->belongsTo(Region::class, 'region_id', 'id');
+    }
     public function sector()
     {
         return $this->belongsTo(Sector::class, 'sector_id', 'id');
