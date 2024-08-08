@@ -302,6 +302,7 @@ Route::controller(App\Http\Controllers\VisitorController::class)->group(function
     Route::get('/visitor/{visitor}', 'show');
     Route::get('/latest/visitor', 'latestSite');
     Route::get('/article/by/visitor/{id}', 'byCat');
+    Route::post('/visitor/login', 'login');
 
     Route::prefix('panel')->group(function () {
 

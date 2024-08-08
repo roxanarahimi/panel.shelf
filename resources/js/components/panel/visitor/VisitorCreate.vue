@@ -45,38 +45,22 @@
 </template>
 
 <script>
-import ImageCropper from '../../components/ImageCropper';
 import App from '../App';
 import BtnSubmit from "../../components/BtnSubmit";
-import Multiselect from '@vueform/multiselect'
 
 
 export default {
-    components: {ImageCropper, BtnSubmit, App, Multiselect},
+    components: { BtnSubmit, App},
     data: function () {
         return {
+            errors: [],
+
         }
     },
     mounted() {
-        this.loadCategories();
-        this.loadProducts();
+
     },
     methods: {
-        async loadCategories() {
-
-            await axios.get('/api/panel/category/product?page=1&perPage=100000')
-                .then((response) => {
-                    this.categories = response.data.data;
-                }).catch();
-        },
-        loadProducts() {
-
-            axios.get('/api/panel/product?page=1&perPage=1000&search=')
-                .then((response) => {
-                    this.allProducts = response.data.data;
-                })
-                .catch()
-        },
 
         async createInfo() {
             this.errors = [];
@@ -93,40 +77,25 @@ export default {
                 }
             });
             if (emptyFieldsCount === 0) {
-
-                let selectedCategories = [];
-                this.value.forEach((element)=>{
-                    selectedCategories.push(element.value)
-                });
-
-                await axios.post('/api/panel/product', {
-                    title: document.getElementById('title').value,
-                    categories: selectedCategories
+                await axios.post('/api/panel/visitor', {
+                    name: document.getElementById('name').value,
+                    mobile: document.getElementById('mobile').value,
 
                 })
                     .then((response) => {
                         console.log(response.data)
                         if (response.status === 201 || response.status === 200) {
                             setTimeout(() => {
-                                this.$router.push({path: '/panel/products'});
+                                this.$router.push({path: '/panel/visitors'});
                             }, 1000);
-
-                            console.log(response)
                         }
                     })
                     .catch((error) => {
-                        // console.log(error);
-                        // console.log(error.message);
-                        // console.log(error.response.data);
-
                         if (error.status === 422) {
                             let errorList = Array(error.response.data);
-                            // console.log(error.response.data);
                             for (var i = 0; i < errorList.length; i++) {
-                                //  console.log('i',errorList[i]);
-                                this.errors = errorList[i];
+                                this.errors=errorList[i];
                             }
-                            console.log(this.errors.toString());
                         } else if (error.status === 500) {
                             if (error.data.message.includes("SQLSTATE")) {
                                 console.error('خطای پایگاه داده');
@@ -166,69 +135,8 @@ export default {
                 window.location = '/panel/login'
                 App.methods.logout();
             }
-
-
-
-        },
-        watchTextAreas() {
-            let txt = document.querySelector("#text");
-            txt.setAttribute("style", "height:" + (txt.scrollHeight + 20) + "px;overflow-y:hidden;");
-            txt.addEventListener("input", changeHeight, false);
-
-            function changeHeight() {
-                this.style.height = "auto";
-                this.style.height = (this.scrollHeight) + "px";
-            }
-        },
-        addFeature() {
-
-            this.features.push('{"label": "", "value": "", "unit": ""}');
-        },
-        removeFeature(index) {
-
-            this.features.splice(index, 1)
-        },
-        updateFeatures() {
-            this.features = [];
-            for (let i = 0; i < document.getElementsByName('featureLabel').length; i++) {
-                this.features.push({
-                    "label": document.getElementsByName('featureLabel')[i].value.toString(),
-                    "value": document.getElementsByName('featureValue')[i].value.toString(),
-                    "unit": document.getElementsByName('featureUnit')[i].value.toString()
-                });
-            }
         },
 
-        addSize() {
-
-            this.sizes.push('{}');
-        },
-        removeSize(index) {
-
-            this.sizes.splice(index, 1)
-        },
-        async updateSizes() {
-            let a = [];
-            for (let i = 0; i < document.getElementsByName('size').length; i++) {
-                await a.push({
-                    "size": document.getElementsByName('size')[i].value.toString(),
-                    "dimensions": document.getElementsByName('dimensions')[i].value.toString(),
-                    "color_name": document.getElementsByName('color_name')[i].value.toString(),
-                    "color_code": document.getElementsByName('color_code')[i].value.toString(),
-                    "stock": document.getElementsByName('stock')[i].value,
-                });
-            }
-            this.sizes = a;
-
-        },
-        removeImage(index) {
-            this.images.splice(index, 1);
-
-        },
-        addImage() {
-            this.images.push(['', '']);
-
-        },
     }
 }
 </script>

@@ -6,6 +6,7 @@ use App\Http\Resources\VisitorResource;
 use App\Models\Visitor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 
 class VisitorController extends Controller
 {
@@ -75,7 +76,16 @@ class VisitorController extends Controller
 //            return response()->json($validator->messages(), 422);
 //        }
         try {
-            $visitor = Visitor::create($request->all());
+            $v = Visitor::where('mobile',$request['mobile'])->first();
+            if ($v){
+
+                return response(["mobile" =>['این شماره قبلا عضو شده']],422);
+            }
+            $visitor = Visitor::create([
+                'name'=> $request['name'],
+                'mobile'=> $request['mobile'],
+                'password'=> Hash::make($request['mobile']),
+            ]);
             return response(new VisitorResource($visitor), 201);
         } catch (\Exception $exception) {
             return response($exception);
@@ -98,12 +108,62 @@ class VisitorController extends Controller
 //            return response()->json($validator->messages(), 422);
 //        }
         try {
-            $visitor->update($request->all());
+            $v = Visitor::where('mobile',$request['mobile'])->whereNot('id',$visitor['id'])->first();
+            if ($v){
+                return response(['mobile'=>['این شماره برای کارشناس دیگری ثبت شده']],422);
+            }
+            $visitor->update([
+                'name'=> $request['name'],
+                'mobile'=> $request['mobile'],
+//                'password'=> Hash::make($request['mobile']),
+            ]);
             return response(new VisitorResource($visitor), 200);
         } catch (\Exception $exception) {
             return response($exception);
         }
     }
+    public function updatePassword(Request $request, Visitor $visitor)
+    {
+        try {
+            $visitor->update([
+                'password'=> Hash::make($request['password']),
+            ]);
+            return response(new VisitorResource($visitor), 200);
+        } catch (\Exception $exception) {
+            return response($exception);
+        }
+    }
+
+    public function login(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|string|max:255',
+            'password' => 'required|string|min:3',
+        ]);
+        if ($validator->fails())
+        {
+            return response(['errors'=>$validator->errors()->all()], 422);
+        }
+        try {
+            $user = Visitor::where('mobile', $request->username)->first();
+            if ($user) {
+                if (Hash::check($request['password'],$user['password'])) {
+                    return response(['user' => new VisitorResource($user)], 200);
+                } else {
+                    $response = ["password" => ["کلمه عبور اشتباه است"]];
+                    return response($response, 422);
+                }
+            } else {
+                $response = ["mobile" =>['کاربر وجود ندارد']];
+                return response($response, 422);
+            }
+        } catch (\Exception $exception) {
+            return response($exception);
+
+        }
+
+    }
+
 
     public function destroy(Visitor $visitor)
     {

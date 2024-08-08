@@ -18,8 +18,10 @@ class VisitorResource extends JsonResource
         return [
             "id" => (string)$this->id,
             "name" => $this->name,
-            "email" => $this->email,
             "mobile" => $this->mobile,
+            "forms" => FormResource::collection($this->forms),
+            "lastForms" =>  FormResource::collection($this->lastForms),
+            "active" =>  $this->active,
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],
             "updated_at" => explode(' ',(new DateController)->toPersian($this->updated_at))[0],
         ];
