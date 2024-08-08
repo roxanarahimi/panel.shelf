@@ -6,22 +6,29 @@
                     <div class="row px-3 ">
                         <div class="col-12 mb-3 ">
                             <div class="d-inline-block mt-5">
-
                                 <h3 class="mb-2 fw-bold d-block">{{ data.name }}</h3>
                             </div>
                             <router-link :to="'/panel/edit/visitor/'+data.id" class="text-dark">
-                <span title="ویرایش کارشناس"
-                      class="mx-3 p-2 d-inline-block align-middle bg-dark text-light rounded-circle">
-                    <i class="bi bi-pencil p-0 edit-pen"></i>
-                </span>
+                                <span title="ویرایش کارشناس" class="mx-3 p-2 d-inline-block align-middle bg-dark text-light rounded-circle"><i class="bi bi-pencil p-0 edit-pen"></i></span>
                             </router-link>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-
+                    <div class="col-xxl-12 my-5 ">
+                        <p><b>نام </b>{{ data.name }}</p>
+                        <p><b>موبایل </b>{{ data.mobile }}</p>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col-xxl-12 mb-4 ">
+                        <b class="d-block my-3">فرمهای اخیر</b>
+                        <ul>
+                            <li v-for="item in data.forms"><router-link :to="'/panel/form/'+item.id">{{ item.customer.code }}</router-link>  {{ item.created_at}}</li>
+                        </ul>
 
+                    </div>
+                </div>
 
             </div>
             <div v-else><p class="fw-bold">این کارشناس موجود نیست</p></div>

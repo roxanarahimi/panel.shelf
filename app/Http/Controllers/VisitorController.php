@@ -13,7 +13,7 @@ class VisitorController extends Controller
     {
         try {
             $perPage = $request['perPage'];
-            $data = Visitor::orderBy('index')->orderByDesc('id')
+            $data = Visitor::orderByDesc('id')
                 ->where('name', 'Like', '%' . $request['search'] . '%')->paginate($perPage);
             $pages_count = ceil($data->total() / $perPage);
             $labels = [];
@@ -36,7 +36,7 @@ class VisitorController extends Controller
     public function indexSite(Request $request)
     {
         try {
-            $data = Visitor::orderBy('index')->orderByDesc('id')->where('active', 1);
+            $data = Visitor::orderByDesc('id')->where('active', 1);
             if ($request['search'] != '') {
                 $data = $data->where('name', 'Like', '%' . $request['search'] . '%');
             }

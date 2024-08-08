@@ -375,19 +375,45 @@ var _hoisted_8 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-    "class": "row"
-  }, null, -1
+var _hoisted_9 = {
+  "class": "row"
+};
+var _hoisted_10 = {
+  "class": "col-xxl-12 my-5"
+};
+
+var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "نام ", -1
   /* HOISTED */
   );
 });
 
-var _hoisted_10 = {
+var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "موبایل ", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_13 = {
+  "class": "row"
+};
+var _hoisted_14 = {
+  "class": "col-xxl-12 mb-4"
+};
+
+var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", {
+    "class": "d-block my-3"
+  }, "فرمهای اخیر", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_16 = {
   key: 1
 };
 
-var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_17 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "fw-bold"
   }, "این کارشناس موجود نیست", -1
@@ -395,7 +421,7 @@ var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_12 = [_hoisted_11];
+var _hoisted_18 = [_hoisted_17];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -419,7 +445,30 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["to"])])])]), _hoisted_9])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_10, _hoisted_12))])];
+      , ["to"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.data.name), 1
+      /* TEXT */
+      )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, [_hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.data.mobile), 1
+      /* TEXT */
+      )])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.data.forms, function (item) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+          to: '/panel/form/' + item.id
+        }, {
+          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.customer.code), 1
+            /* TEXT */
+            )];
+          }),
+          _: 2
+          /* DYNAMIC */
+
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["to"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.created_at), 1
+        /* TEXT */
+        )]);
+      }), 256
+      /* UNKEYED_FRAGMENT */
+      ))])])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, _hoisted_18))])];
     }),
     _: 1
     /* STABLE */
@@ -470,7 +519,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.color-span[data-v-41f82932] {\r\n    width: 20px;\r\n    height: 20px;\r\n    border-radius: 50%;\r\n    margin-bottom: -5px;\n}\n#content p[data-v-41f82932] {\r\n    text-align: justify !important;\r\n    line-height: 30px !important;\r\n    padding-left: 10px;\n}\n#content figure[data-v-41f82932] {\r\n    text-align: center !important;\r\n    display: block !important;\n}\n#content figure figcaption[data-v-41f82932] {\r\n    text-align: center !important;\n}\n.index_image .label[data-v-41f82932] {\r\n    display: block;\r\n    font-size: 20px;\r\n    margin: -50px 20px 20px 20px !important;\n}\n#content figure img[data-v-41f82932] {\r\n    max-width: 100%;\n}\r\n\r\n/*.index_image span{*/\r\n/*    display: inline-block;*/\r\n/*    right:20px;*/\r\n/*    bottom: 20px;*/\r\n/*}*/\n.edit-pen[data-v-41f82932] {\r\n    font-size: 12px;\r\n    margin: 0 6px !important;\n}\n.element-cards[data-v-41f82932] {\r\n    /*box-shadow: none;*/\r\n    /*background-color: transparent;*/\n}\n.moving-card[data-v-41f82932] {\r\n    opacity: 1 !important;\r\n    background-color: whitesmoke;\r\n    border: dotted dimgray !important;\r\n    box-shadow: none;\n}\nth[data-v-41f82932], td[data-v-41f82932] {\r\n    padding: 10px;\r\n    min-width: 100px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.color-span[data-v-41f82932] {\n    width: 20px;\n    height: 20px;\n    border-radius: 50%;\n    margin-bottom: -5px;\n}\n#content p[data-v-41f82932] {\n    text-align: justify !important;\n    line-height: 30px !important;\n    padding-left: 10px;\n}\n#content figure[data-v-41f82932] {\n    text-align: center !important;\n    display: block !important;\n}\n#content figure figcaption[data-v-41f82932] {\n    text-align: center !important;\n}\n.index_image .label[data-v-41f82932] {\n    display: block;\n    font-size: 20px;\n    margin: -50px 20px 20px 20px !important;\n}\n#content figure img[data-v-41f82932] {\n    max-width: 100%;\n}\n\n/*.index_image span{*/\n/*    display: inline-block;*/\n/*    right:20px;*/\n/*    bottom: 20px;*/\n/*}*/\n.edit-pen[data-v-41f82932] {\n    font-size: 12px;\n    margin: 0 6px !important;\n}\n.element-cards[data-v-41f82932] {\n    /*box-shadow: none;*/\n    /*background-color: transparent;*/\n}\n.moving-card[data-v-41f82932] {\n    opacity: 1 !important;\n    background-color: whitesmoke;\n    border: dotted dimgray !important;\n    box-shadow: none;\n}\nth[data-v-41f82932], td[data-v-41f82932] {\n    padding: 10px;\n    min-width: 100px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
