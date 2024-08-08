@@ -24,10 +24,13 @@
                         <p><b>تلفن </b>{{ data.phone }}</p>
 
                         <p><b>ادرس </b>{{ data.address }}</p>
-                        <p><b>محله </b>{{ data.sector.title }}</p>
-                        <p><b>منطقه </b>{{ data.region.title }}</p>
-                        <p><b>شهر </b>{{ data.city.title }}</p>
-                        <p><b>استان </b>{{ data.province.title }}</p>
+                        <p><b>منطقه </b>{{ data.region?.title }}</p>
+                        <p><b>نام مسیر </b>{{ data.path }}</p>
+                        <p><b>کد مسیر </b>{{ data.path_code }}</p>
+                        <p><b>توصیحات مسیر </b>{{ data.path_description }}</p>
+                        <p><b>محله </b>{{ data.sector?.title }}</p>
+                        <p><b>شهر </b>{{ data.city?.title }}</p>
+                        <p><b>استان </b>{{ data.province?.title }}</p>
                     </div>
                 </div>
 

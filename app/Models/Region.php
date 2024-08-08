@@ -13,6 +13,10 @@ class Region extends Model
     {
         return $this->hasMany(Sector::class,  'region_id', 'id');
     }
+     public function customers()
+    {
+        return $this->hasMany(Customer::class,  'region_id', 'id');
+    }
     public function city()
     {
         return $this->belongsTo(City::class, 'city_id', 'id');

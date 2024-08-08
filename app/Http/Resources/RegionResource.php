@@ -25,6 +25,7 @@ class RegionResource extends JsonResource
 //            "city" => new CityResource($this->city),
             "city" => $this->city,
             "sectors" => $this->sectors,
+            "customers" => $this->customers,
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],
             "updated_at" => explode(' ',(new DateController)->toPersian($this->updated_at))[0],
         ];

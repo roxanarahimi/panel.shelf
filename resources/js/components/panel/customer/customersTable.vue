@@ -8,9 +8,10 @@
                     <th scope="col">کد مشتری</th>
                     <th scope="col">نام</th>
                     <th scope="col">موبایل</th>
-                    <th scope="col">نام فروشگاه</th>
-                    <th scope="col">استان</th>
+                    <th scope="col">مسیر</th>
+                    <th scope="col">منطقه</th>
                     <th scope="col">شهر</th>
+                    <th scope="col">استان</th>
                     <th class="d-none d-md-table-cell" scope="col">تاریخ ثبت</th>
                     <th scope="col" class="active_cell">وضعیت</th>
                     <th scope="col"></th>
@@ -28,7 +29,8 @@
                     </td>
                     <td>{{ data.name }}</td>
                     <td>{{ data.mobile }}</td>
-                    <td>{{ data.name }}</td>
+                    <td>{{ data.path }}</td>
+                    <td>{{ data.region?.title }}</td>
                     <td>{{ data.province?.title }}</td>
                     <td>{{ data.city?.title }}</td>
 

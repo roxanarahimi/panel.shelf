@@ -25,6 +25,10 @@
                         <ul>
                             <li v-for="item in data.sectors"><router-link :to="'/panel/sector/'+item.id">{{ item.title }}</router-link></li>
                         </ul>
+ <b class="d-block mt-4">مشتری ها</b>
+                        <ul>
+                            <li v-for="item in data.customers"><router-link :to="'/panel/customer/'+item.id">{{ item.name }}</router-link></li>
+                        </ul>
 
                     </div>
                 </div>

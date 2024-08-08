@@ -27,6 +27,9 @@ class CustomerResource extends JsonResource
             "region" => $this->region,
             "sector" => $this->sector,
             "address" => $this->address,
+            "path" => $this->path,
+            "path_code" => $this->path_code,
+            "path_description" => $this->path_description,
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],
             "updated_at" => explode(' ',(new DateController)->toPersian($this->updated_at))[0],
         ];
