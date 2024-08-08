@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\AdminResource;
-use App\Http\Resources\UserResource;
+use App\Http\Resources\VisitorResource;
 use App\Models\Admin;
 use App\Models\Company;
 use App\Models\RxoRedis;
-use App\Models\User;
+use App\Models\Visitor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -19,70 +19,25 @@ class AuthController extends Controller
 {
     public function login(Request $request)
     {
-
-//        return $request;
-//        $http = new \GuzzleHttp\user;
-//
-//        try {
-//            $response = $http->post;('http://127.0.0.1:8000/oauth/token', [
-//                'form_params' => [
-//                    'grant_type' => 'password',
-//                    'client_id' => 2,
-//                    'client_secret' => '8bEdKUmK73egEBlPZgKxTf3zYduzpwn24m71Y5X6',
-//                    'username' => $request['username'],
-//                    'password' => $request['password'],
-//                    'scope' => null
-//
-//                ]
-//            ]);
-//            return $response->getBody();
-//
-//        } catch (BadResponseException $e) {
-//
-//            return $e->getMessage();
-////            if ($e->getCode() === 400) {
-////                return response()->json('Invalid Request. Please enter a username or a password.', $e->getCode());
-////            } else if ($e->getCode() === 401) {
-////                return response()->json('Your credentials are incorrect. Please try again', $e->getCode());
-////
-////            }
-////            return response()->json('Something wnt wrong on the server', $e->getCode());
-
-//        }
-//        $validator = Validator::make($request->all(), [
-//            'email' => 'required|string|email|max:255',
-//            'password' => 'required|string|min:6|confirmed',
-//        ]);
-//        if ($validator->fails())
-//        {
-//            return response(['errors'=>$validator->errors()->all()], 422);
-//        }
-//        $validator = Validator::make($request->all(), [
-//            'email' => 'required|string|email|max:255',
-//            'password' => 'required|string|min:3',
-//        ]);
-//        if ($validator->fails())
-//        {
-//            return response(['errors'=>$validator->errors()->all()], 422);
-//        }
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|string|max:255',
+            'password' => 'required|string|min:3',
+        ]);
+        if ($validator->fails())
+        {
+            return response(['errors'=>$validator->errors()->all()], 422);
+        }
         try {
-            $user = User::where('email', $request->username)->first();
+            $user = Visitor::where('mobile', $request->username)->first();
             if ($user) {
-                if (auth()->attempt(['email' => request('username'), 'password' => request('password')])) {
-                    $token = $user->createToken('user')->accessToken;
-
-                    $date = new \DateTime();
-                    $date->add(new \DateInterval('PT2H'));
-
-                    $user->update(['last_activity'=> $date->format('Y-m-d H:i:s')]);
-
-                    return response(['user' => new UserResource($user), 'access_token' => $token, 'expire' => date_format($date, 'Y-m-d H:i:s')], 200);
+                if (Hash::check($request['password'],$user['password'])) {
+                    return response(['user' => new VisitorResource($user)], 200);
                 } else {
                     $response = ["password" => ["کلمه عبور اشتباه است"]];
                     return response($response, 422);
                 }
             } else {
-                $response = ["email" =>['کاربر وجود ندارد']];
+                $response = ["mobile" =>['کاربر وجود ندارد']];
                 return response($response, 422);
             }
         } catch (\Exception $exception) {
@@ -96,7 +51,7 @@ class AuthController extends Controller
     {
 //        Redis::set($request['mobile'], Random::generate(4, '0-9'));
 
-        $user = User::where('mobile', $request->mobile)->first();
+        $user = Visitor::where('mobile', $request->mobile)->first();
         if ($user) {
 
             if ((($user['scope'] == 'company' && $request['scope'] == 'company') || ($user['scope'] == 'user' && $request['scope'] == 'user'))
@@ -143,7 +98,7 @@ class AuthController extends Controller
     public function loginMobile(Request $request)
     {
         try {
-            $user = User::where('mobile', $request->mobile)->first();
+            $user = Visitor::where('mobile', $request->mobile)->first();
             $code = RxoRedis::where('key', $request->mobile)->first();
 //            if ($code['created_at'] > date() + 1) {
 //                $code->delete();
@@ -160,7 +115,7 @@ class AuthController extends Controller
                     $date->add(new \DateInterval('PT2H'));
                     $user->update(['last_activity' => $date->format('Y-m-d H:i:s')]);
                     $code->delete();
-                    return response(['user' => new UserResource($user), 'access_token' => $token, 'scope' => $request['scope'], 'expire' => date_format($date, 'Y-m-d H:i:s')], 200);
+                    return response(['user' => new VisitorResource($user), 'access_token' => $token, 'scope' => $request['scope'], 'expire' => date_format($date, 'Y-m-d H:i:s')], 200);
                 } else {
                     $response = ["password" => ["کد وارد شده اشتباه است"]];
                     return response($response, 422);
@@ -171,13 +126,13 @@ class AuthController extends Controller
                     $date = new \DateTime();
                     $date->add(new \DateInterval('PT2H'));
 
-                    $user = User::create(['mobile' => $request->mobile, 'scope' => $request['scope'], 'last_activity' => $date->format('Y-m-d H:i:s')]);
+                    $user = Visitor::create(['mobile' => $request->mobile, 'scope' => $request['scope'], 'last_activity' => $date->format('Y-m-d H:i:s')]);
                     if($user['scope'] === 'company'){
                         Company::create(['user_id' => $user->id]);
                     }
                     $token = $user->createToken('user')->accessToken;
                     $code->delete();
-                    return response(['user' => new UserResource($user), 'access_token' => $token, 'scope' => $request['scope'], 'expire' => date_format($date, 'Y-m-d H:i:s')], 200);
+                    return response(['user' => new VisitorResource($user), 'access_token' => $token, 'scope' => $request['scope'], 'expire' => date_format($date, 'Y-m-d H:i:s')], 200);
 
                 } else {
                     $response = ["password" => ["کد وارد شده اشتباه است"]];
@@ -213,7 +168,7 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->messages(), 422);
         }
-        $user = User::create([
+        $user = Visitor::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
@@ -221,17 +176,17 @@ class AuthController extends Controller
         //event(new Registered($client));
 
         $accessToken = $user->createToken('authToken')->accessToken;
-        return response(['user' => new UserResource($user), 'access_token' => $accessToken], 201);
+        return response(['user' => new VisitorResource($user), 'access_token' => $accessToken], 201);
 
 //        $request['password']=Hash::make($request['password']);
 //        $request['remember_token'] = Str::random(10);
-//        $client = User::create($request->toArray());
+//        $client = Visitor::create($request->toArray());
 //        $token = $client->createToken('Laravel Password Grant user')->accessToken;
 //        $response = ['access_token' => $token];
 //        return response($response, 200);
     }
 
-    public function logout(User $user)
+    public function logout(Visitor $user)
     {
         try {
 //            return $user->tokens;
@@ -251,7 +206,7 @@ class AuthController extends Controller
     {
 //        $id = 1;
         // $client = auth()->user();
-        $user = User::find($request['id']);
+        $user = Visitor::find($request['id']);
         if (!$user) {
             return response(['message' => 'user does not exist'], 401);
         }
@@ -269,12 +224,12 @@ class AuthController extends Controller
         } else {
             $expDate = date('Y-m-d H:i:s', strtotime('+2 hour', strtotime($date)));
             $user->update(['last_activity' => $date]);
-            return response(['message' => 'token updated', 'user' => new UserResource($user), 'expire' => $expDate], 200);
+            return response(['message' => 'token updated', 'user' => new VisitorResource($user), 'expire' => $expDate], 200);
         }
 
     }
 
-    public function currentUser()
+    public function currentVisitor()
     {
         try {
             return response(Auth()->user(), 200);
@@ -298,7 +253,7 @@ class AuthController extends Controller
 //
 ////                $user->update(['last_activity' => $date->format('Y-m-d H:i:s')]);
 //
-//                return response()->json(['admin' => new UserResource($user), 'access_token' => $token, 'expire' => date_format($date, 'Y-m-d H:i:s')], 200);
+//                return response()->json(['admin' => new VisitorResource($user), 'access_token' => $token, 'expire' => date_format($date, 'Y-m-d H:i:s')], 200);
 //            } else {
 //                $response = ["password" => ["کلمه عبور اشتباه است"]];
 //                return response($response, 422);
