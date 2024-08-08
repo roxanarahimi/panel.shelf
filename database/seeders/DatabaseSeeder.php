@@ -14,20 +14,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-;
+
         $this->seed([
-            //all
 //            UserSeeder::class,
-//            ProvinceSeeder::class,
-//            CitySeeder::class,
-//            RegionSeeder::class,
-//            CustomerSeeder::class,
-//            SectorSeeder::class,
-
+            ProvinceSeeder::class,
+            CitySeeder::class,
+            RegionSeeder::class,
+            CustomerSeeder::class,
+            SectorSeeder::class,
             SkuSeeder::class,
-
-
-            // ...
         ]);
     }
 }
