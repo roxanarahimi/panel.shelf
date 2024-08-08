@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('sectors', function (Blueprint $table) {
             $table->id();
-            $table->integer('region_id');
+//            $table->integer('region_id');
+            $table->integer('city_id')->default(1);
             $table->string('title');
+            $table->string('score');
             $table->boolean('active')->default(0);
             $table->timestamps();
         });

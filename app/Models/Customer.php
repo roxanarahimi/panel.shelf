@@ -13,8 +13,12 @@ class Customer extends Model
     {
         return $this->belongsTo(Region::class, 'region_id', 'id');
     }
-    public function sector()
+   public function scores()
     {
-        return $this->belongsTo(Sector::class, 'sector_id', 'id');
+        return $this->hasone(CustomerGradeScore::class, 'customer_id', 'id');
+    }
+    public function forms()
+    {
+        return $this->hasMany(Form::class, 'customer_id', 'id');
     }
 }

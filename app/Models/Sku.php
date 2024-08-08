@@ -13,6 +13,10 @@ class Sku extends Model
     {
         return $this->belongsTo(SkuCategory::class, 'sku_category_id', 'id');
     }
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class, 'brand_id', 'id');
+    }
     public function activeCategory()
     {
         return $this->belongsTo(SkuCategory::class, 'sku_category_id', 'id')->where('active',1);

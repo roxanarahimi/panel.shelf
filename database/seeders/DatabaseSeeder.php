@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\ArticleCategory;
 use Illuminate\Database\Seeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,37 +14,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//            \App\Models\ArticleCategory::factory()
-//            ->has(\App\Models\Article::factory()->count(3))
-//            ->create();
+;
         $this->seed([
             //all
-            AdminSeeder::class,
-            UserSeeder::class,
-            ArticleSeeder::class,
-            ArticleCategorySeeder::class,
-            SlideSeeder::class,
+//            UserSeeder::class,
+//            ProvinceSeeder::class,
+//            CitySeeder::class,
+//            RegionSeeder::class,
+//            CustomerSeeder::class,
+//            SectorSeeder::class,
 
-            //shop
-            UserAddressSeeder::class,
-            OrderSeeder::class,
-            OrderItemSeeder::class,
-            ProductSeeder::class,
-            ProductCategorySeeder::class,
-            ProductSizeSeeder::class,
-            FinanceSeeder::class,
-
-            //school
-            CourseSeeder::class,
-            CourseCategorySeeder::class,
-            TeacherSeeder::class,
-            FinanceSeeder::class,
-
-
-            //office
-            ProjectSeeder::class,
-            ProjectCategorySeeder::class,
-            ResumeSeeder::class,
+            SkuSeeder::class,
 
 
             // ...

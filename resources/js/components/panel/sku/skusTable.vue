@@ -8,7 +8,8 @@
 <!--                    <th class="d-none d-md-table-cell" style="width: 100px" scope="col">تصویر</th>-->
                     <th scope="col" class="d-none d-xl-table-cell text_cell">دسته</th>
                     <th scope="col">عنوان</th>
-<!--                    <th scope="col">قیمت</th>-->
+                    <th scope="col">دسته بندی</th>
+                    <th scope="col">برند</th>
 <!--                    <th scope="col">%تخفیف</th>-->
 <!--                    <th class="">موجودی</th>-->
 <!--                    <th class="d-none d-xl-table-cell" scope="col">متن</th>-->
@@ -33,9 +34,9 @@
                         :class="{'text-decoration-line-through text-muted ': !data.category.active}">
                         {{ data.category.title }}
                     </td>
-                    <td>
-                    <router-link :to="'/panel/sku/'+data.id">{{ data.title }}</router-link>
-                </td>
+                    <td><router-link :to="'/panel/sku/'+data.id">{{ data.title }}</router-link></td>
+                    <td>{{ data.category.title }}</td>
+                    <td>{{ data.brand.title }}</td>
 <!--                    <td>{{ data.price }}</td>-->
 <!--                    <td>{{ data.off }}</td>-->
 

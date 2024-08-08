@@ -6,10 +6,11 @@
                 <tr>
                     <th class="table-first-cell" scope="col"></th>
                     <th scope="col">عنوان</th>
-                    <th scope="col" class="d-none d-xl-table-cell text_cell">استان</th>
-                    <th class="col" scope="col">استان</th>
-                    <th class="col" scope="col">شهر</th>
+                    <th scope="col" class="d-none d-xl-table-cell text_cell">امتیاز گرید بندی</th>
                     <th class="col" scope="col">منطقه</th>
+                    <th class="col" scope="col">شهر</th>
+                    <th class="col" scope="col">استان</th>
+
                     <th class="d-none d-md-table-cell" scope="col">تاریخ ثبت</th>
                     <th scope="col" class="active_cell">وضعیت</th>
                     <th scope="col"></th>
@@ -19,19 +20,11 @@
                 <tr :id="'row_'+data.id" v-for="(data, index) in allData" :key="data.id" :data-index="index">
                     <td class="table-first-cell" scope="row">{{ index + 1 }}</td>
                     <td><router-link :to="'/panel/sector/'+data.id">{{ data.title }}</router-link></td>
-                    <td>{{ data.region.city.province.title }}</td>
-                    <td>{{ data.region.city.title }}</td>
-                    <td>{{ data.region.title }}</td>
-                    <td class="d-none d-xl-table-cell text_cell">
-                        {{ data.province.title }}
-                    </td>
-                    <td class="d-none d-xl-table-cell text_cell">
-                        {{ data.city.title }}
-                    </td>
+                    <td>{{ data.score }}</td>
+                    <td>{{ data.region?.title }}</td>
+                    <td>{{ data.region?.city?.title }}</td>
+                    <td>{{ data.region?.city?.province.title }}</td>
 
-                    <td class="d-none d-xl-table-cell text_cell">
-                        {{ data.region.title }}
-                    </td>
                     <td class="d-none d-md-table-cell date_cell">{{ data.created_at }}</td>
                     <td class="active_cell">
                         <span @click="activeToggle(model,data.id)" v-if="data.active"

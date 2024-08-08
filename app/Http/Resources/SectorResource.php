@@ -18,16 +18,17 @@ class SectorResource extends JsonResource
         return [
             "id" => (string)$this->id,
             "title" => $this->title,
+            "score" => $this->score,
             "active" => (boolean)$this->active,
             "province" => [
-                'id'=> $this->region->city->province->id,
-                'title'=> $this->region->city->province->title,
-                'cities' => $this->region->city->province->cities
+                'id'=> $this->region?->city->province->id,
+                'title'=> $this->region?->city->province->title,
+                'cities' => $this->region?->city->province->cities
             ],
             "city" => [
-                'id'=> $this->region->city->id,
-                'title'=> $this->region->city->title,
-                'regions' => $this->region->city->regions
+                'id'=> $this->region?->city->id,
+                'title'=> $this->region?->city->title,
+                'regions' => $this->region?->city->regions
             ],
             "region" => $this->region,
             "customers" => $this->customers,

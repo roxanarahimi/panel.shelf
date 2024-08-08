@@ -18,8 +18,8 @@
                                 <h3 class="mb-2 fw-bold d-block">{{ data.title }}</h3>
                                 <h4 class="mb-2 fw-bold d-block">{{ data.subTitle }}</h4>
                             </div>
-                            <router-link :to="'/panel/edit/product/'+data.id" class="text-dark">
-                <span title="ویرایش محصول"
+                            <router-link :to="'/panel/edit/sku/'+data.id" class="text-dark">
+                <span title="ویرایش sku"
                       class="mx-3 p-2 d-inline-block align-middle bg-dark text-light rounded-circle">
                     <i class="bi bi-pencil p-0 edit-pen"></i>
                 </span>
@@ -35,14 +35,14 @@
                     <div class="card h-100">
                         <div class="card-body p-md-5 ">
                             <div class="d-md-flex justify-content-md-between ">
-                                <p>{{ data.title_en }}</p>
+<!--                                <p>{{ data.title_en }}</p>-->
                                 <!--                                <p>{{ data.subTitle }}</p>-->
-                                <p>{{ data.flavor }}</p>
-                                <p>{{ data.flavor_en }}</p>
+<!--                                <p>{{ data.flavor }}</p>-->
+<!--                                <p>{{ data.flavor_en }}</p>-->
                             </div>
-                            <div class="" v-if="data.link">
-                                <a target="_blank" :href="data.link">لینک خرید</a>
-                            </div>
+<!--                            <div class="" v-if="data.link">-->
+<!--                                <a target="_blank" :href="data.link">لینک خرید</a>-->
+<!--                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -63,19 +63,7 @@
                     <div class="card h-100">
                         <div class="card-body p-md-5 ">
                             <div class="row">
-                                <div class="col-lg-12">
-                                    <h5 class="mb-5">ارزش غذایی</h5>
-                                    <table v-if="data.features">
-                                        <tbody>
-                                        <tr v-for="item in features" :key="item.id">
-                                            <th>{{ item.label }}:</th>
-                                            <td class="text-center">{{ item.unit }}</td>
-                                            <td class="text-center">{{ item.value }}</td>
 
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
 
                             </div>
                         </div>
@@ -96,15 +84,15 @@
 
                 <div class="col-xxl-12 mb-5 ">
                     <div class="card h-100">
-                        <div class="card-body p-md-5 ">
-                            <h5 class="mb-5">محصولات مرتبط</h5>
+<!--                        <div class="card-body p-md-5 ">-->
+<!--                            <h5 class="mb-5">skuات مرتبط</h5>-->
 
-                            <button v-for="item in data.related_products" :key="item.id" class="m-2 btn btn-sm btn-primary">{{ item.title}}</button>
-                        </div>
+<!--                            <button v-for="item in data.related_skus" :key="item.id" class="m-2 btn btn-sm btn-primary">{{ item.title}}</button>-->
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
-            <div v-else><p class="fw-bold">این محصول موجود نیست</p></div>
+            <div v-else><p class="fw-bold">این sku موجود نیست</p></div>
 
         </section>
 
@@ -123,7 +111,6 @@ export default {
         return {
             data: {},
             id: this.$route.params.id,
-            features: [],
             images: [],
         }
     },
@@ -134,23 +121,14 @@ export default {
     methods: {
         async loadProduct() {
 
-            await axios.get('/api/panel/product/' + this.id)
+            await axios.get('/api/panel/sku/' + this.id)
                 .then((response) => {
-                    this.data = response.data.product;
+                    this.data = response.data;
                     // if (document.querySelector('#text')) {
                     //     document.querySelector('#text').innerText = this.data.text;
                     // }
-                    if (this.data.features) {
-                        this.features = [];
-                        for (let i = 0; i < JSON.parse(this.data.features).length; i++) {
-                            this.features.push(JSON.parse(this.data.features)[i]);
-                        }
-                    }
-                    if (this.data.images) {
-                        for (let i = 0; i < this.data.images.length; i++) {
-                            this.images.push([i, this.data.images[i]]);
-                        }
-                    }
+
+
                 });
 
         },
@@ -165,7 +143,7 @@ export default {
             }
             // },1000);
 
-            axios.post('/api/panel/images/reorder/product/' + this.id, {images: list})
+            axios.post('/api/panel/images/reorder/sku/' + this.id, {images: list})
                 .then((response) => {
                     console.log('res', response);
                     if (response.status === 200) {

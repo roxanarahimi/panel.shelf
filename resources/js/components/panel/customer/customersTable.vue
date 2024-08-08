@@ -7,7 +7,8 @@
                     <th class="table-first-cell" scope="col"></th>
                     <th scope="col">کد مشتری</th>
                     <th scope="col">نام</th>
-                    <th scope="col">موبایل</th>
+                    <th scope="col">تلفن</th>
+                    <th scope="col">گرید</th>
                     <th scope="col">مسیر</th>
                     <th scope="col">منطقه</th>
                     <th scope="col">شهر</th>
@@ -28,7 +29,8 @@
                         <router-link :to="'/panel/customer/'+data.id">{{ data.code }}</router-link>
                     </td>
                     <td>{{ data.name }}</td>
-                    <td>{{ data.mobile }}</td>
+                    <td>{{ data.phone }}</td>
+                    <td>{{ data.scores?.grade }}</td>
                     <td>{{ data.path }}</td>
                     <td>{{ data.region?.title }}</td>
                     <td>{{ data.province?.title }}</td>

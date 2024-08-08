@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('skus', function (Blueprint $table) {
             $table->id();
             $table->integer('sku_category_id');
+            $table->integer('brand_id');
             $table->string('title');
-            $table->string('wight')->default(0);
+            $table->string('weight')->default(0);
             $table->boolean('active')->default(0);
             $table->timestamps();
         });

@@ -24,6 +24,11 @@ class SkuResource extends JsonResource
                 'title' => $this->category->title,
                 'active' => $this->category->active,
             ],
+            "brand" => [
+                'id' => $this->brand->id,
+                'title' => $this->brand->title,
+                'active' => $this->brand->active,
+            ],
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],
             "updated_at" => explode(' ',(new DateController)->toPersian($this->updated_at))[0],
         ];
