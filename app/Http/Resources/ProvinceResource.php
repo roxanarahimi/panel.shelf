@@ -19,8 +19,8 @@ class ProvinceResource extends JsonResource
             "id" => (string)$this->id,
             "title" => $this->title,
             "active" => (boolean)$this->active,
-            "cities" => CityResource::collection($this->cities),
-//            "cities" => $this->cities,
+//            "cities" => CityResource::collection($this->cities),
+            "cities" => $this->cities,
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],
             "updated_at" => explode(' ',(new DateController)->toPersian($this->updated_at))[0],
         ];
