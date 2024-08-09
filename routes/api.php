@@ -281,7 +281,7 @@ Route::controller(App\Http\Controllers\CustomerController::class)->group(functio
     Route::get('/customer', 'indexSite');
     Route::get('/customer/{customer}', 'show');
     Route::get('/latest/customer', 'latestSite');
-    Route::get('/customer/by/sector/{id}', 'bySector');
+    Route::get('/customer/by/region/{id}', 'byRegion');
     Route::get('/customer/by/code/{code}', 'byCode');
 
     Route::prefix('panel')->group(function () {

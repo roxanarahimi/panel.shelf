@@ -126,10 +126,10 @@ class CustomerController extends Controller
             return response($exception);
         }
     }
-    public function bySector($id)
+    public function byRegion($id)
     {
         try {
-            $dataa = Customer::where('sector_id',$id)->get();
+            $dataa = Customer::where('region_id',$id)->get();
             return response(CustomerResource::collection($dataa), 200);
         } catch (\Exception $exception) {
             return response($exception);
