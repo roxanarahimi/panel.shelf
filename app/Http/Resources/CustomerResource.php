@@ -22,7 +22,7 @@ class CustomerResource extends JsonResource
             "mobile" => $this->mobile,
             "phone" => $this->phone,
             "active" => (boolean)$this->active,
-            "province" => $this->region?->city->province,
+            "province" => $this->region?->city?->province,
             "city" => $this->region?->city,
             "region" => $this->region,
             "sector" => $this->sector,
