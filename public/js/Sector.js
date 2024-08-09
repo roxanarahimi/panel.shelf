@@ -173,8 +173,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     appear: ""
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      var _ctx$data$region, _ctx$data$region$city, _ctx$data$region$city2, _ctx$data$region2, _ctx$data$region2$cit, _ctx$data$region3;
-
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [_ctx.data.id ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)('محله ' + _ctx.data.title), 1
       /* TEXT */
       )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
@@ -189,11 +187,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
       }, 8
       /* PROPS */
-      , ["to"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)('استان: ' + ((_ctx$data$region = _ctx.data.region) === null || _ctx$data$region === void 0 ? void 0 : (_ctx$data$region$city = _ctx$data$region.city) === null || _ctx$data$region$city === void 0 ? void 0 : (_ctx$data$region$city2 = _ctx$data$region$city.province) === null || _ctx$data$region$city2 === void 0 ? void 0 : _ctx$data$region$city2.title)), 1
+      , ["to"])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)('استان: ' + _ctx.data.city.province.title), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)('شهر: ' + ((_ctx$data$region2 = _ctx.data.region) === null || _ctx$data$region2 === void 0 ? void 0 : (_ctx$data$region2$cit = _ctx$data$region2.city) === null || _ctx$data$region2$cit === void 0 ? void 0 : _ctx$data$region2$cit.title)), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)('شهر: ' + _ctx.data.city.title), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)('منطقه: ' + ((_ctx$data$region3 = _ctx.data.region) === null || _ctx$data$region3 === void 0 ? void 0 : _ctx$data$region3.title)), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)('منطقه: ' + _ctx.data.title), 1
       /* TEXT */
       ), _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.data.customers, function (item) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {

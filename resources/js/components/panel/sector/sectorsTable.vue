@@ -7,7 +7,6 @@
                     <th class="table-first-cell" scope="col"></th>
                     <th scope="col">عنوان</th>
                     <th scope="col" class="d-none d-xl-table-cell text_cell">امتیاز گرید بندی</th>
-                    <th class="col" scope="col">منطقه</th>
                     <th class="col" scope="col">شهر</th>
                     <th class="col" scope="col">استان</th>
 
@@ -21,9 +20,8 @@
                     <td class="table-first-cell" scope="row">{{ index + 1 }}</td>
                     <td><router-link :to="'/panel/sector/'+data.id">{{ data.title }}</router-link></td>
                     <td>{{ data.score }}</td>
-                    <td>{{ data.region?.title }}</td>
-                    <td>{{ data.region?.city?.title }}</td>
-                    <td>{{ data.region?.city?.province.title }}</td>
+                    <td>{{ data.city?.title }}</td>
+                    <td>{{ data.city?.province?.title }}</td>
 
                     <td class="d-none d-md-table-cell date_cell">{{ data.created_at }}</td>
                     <td class="active_cell">

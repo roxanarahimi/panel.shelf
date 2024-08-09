@@ -69,6 +69,7 @@ export default {
 
     created() {
         this.loadProvinces();
+        this.loadCity();
     },
 
     methods: {
@@ -82,15 +83,13 @@ export default {
                 .then(() => {
                     this.isDefined = true;
                 })
-                .then(() => {
-                    this.watchTextAreas();
-                })
+
                 .catch();
         },
         loadProvinces() {
             axios.get('/api/panel/province?page=1&perPage=100000')
                 .then((response) => {
-                    this.provinces = response.data;
+                    this.provinces = response.data.data;
                 })
                 .catch();
         },

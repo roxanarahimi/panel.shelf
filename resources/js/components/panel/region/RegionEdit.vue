@@ -24,7 +24,7 @@
                                                 aria-describedby="provinceHelp"
                                                 aria-label="province" required>
                                             <option value=""></option>
-                                            <option :selected="data.province.id == province.id"
+                                            <option :selected="data.city.province_id == province.id"
                                                     v-for="province in provinces" :key="province.id"
                                                     :value="province">
                                                 {{ province.title }}

@@ -103,6 +103,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.loadProvinces();
+    this.loadCity();
   },
   methods: {
     loadCity: function loadCity() {
@@ -113,15 +114,13 @@ __webpack_require__.r(__webpack_exports__);
         _this.data = response.data;
       }).then(function () {
         _this.isDefined = true;
-      }).then(function () {
-        _this.watchTextAreas();
       })["catch"]();
     },
     loadProvinces: function loadProvinces() {
       var _this2 = this;
 
       axios.get('/api/panel/province?page=1&perPage=100000').then(function (response) {
-        _this2.provinces = response.data;
+        _this2.provinces = response.data.data;
       })["catch"]();
     },
     updateInfo: function updateInfo() {
@@ -505,7 +504,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nspan i {\r\n    cursor: pointer;\n}\r\n\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nspan i {\n    cursor: pointer;\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

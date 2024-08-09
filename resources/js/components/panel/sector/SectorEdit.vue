@@ -49,19 +49,14 @@
                                         </select>
                                         <div id="city_idHelp" class="form-text error"></div>
                                     </div>
-                                    <div class="col-md-4 col-lg-4 mb-3">
-                                        <label for="region_id" class="form-label">منطقه</label>
-                                        <select @change="updateData" class="form-select" id="region_id"
-                                                aria-describedby="regionHelp"
-                                                aria-label="region">
-                                            <option value=""></option>
-                                            <option :selected="data.region.id == region.id"
-                                                    v-for="region in regions" :key="region.id"
-                                                    :value="region.id">
-                                                {{ region.title }}
-                                            </option>
-                                        </select>
-                                        <div id="regionHelp" class="form-text error"></div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="score" class="form-label">امتیاز گرید بندی</label>
+                                        <input @input="updateData" type="text" :class="{hasError: errors.score}"
+                                               class="form-control"
+                                               id="score" :value="data.score" aria-describedby="scoreHelp" required>
+                                        <div id="scoreHelp" class="form-text error"></div>
+                                        <p class="form-text error m-0" v-for="e in errors.score">{{ e }}</p>
+
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <BtnSubmit @click.prevent="updateInfo">

@@ -19,9 +19,9 @@
                 </div>
                 <div class="row">
                     <div class="col-xxl-12 mb-5 ">
-                        <b class="mb-2 fw-bold d-block">{{ 'استان: '+data.region?.city?.province?.title }}</b>
-                        <b class="mb-2 fw-bold d-block">{{ 'شهر: '+data.region?.city?.title }}</b>
-                        <b class="mb-2 fw-bold d-block">{{ 'منطقه: '+data.region?.title }}</b>
+                        <b class="mb-2 fw-bold d-block">{{ 'استان: '+data.city.province.title }}</b>
+                        <b class="mb-2 fw-bold d-block">{{ 'شهر: '+data.city.title }}</b>
+                        <b class="mb-2 fw-bold d-block">{{ 'منطقه: '+data.title }}</b>
 
                         <b class="d-block mt-4">مشتری ها</b>
                         <ul>

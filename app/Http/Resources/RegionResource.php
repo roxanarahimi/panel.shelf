@@ -21,7 +21,8 @@ class RegionResource extends JsonResource
             "active" => (boolean)$this->active,
 
 //            "province" => new ProvinceResource($this->city->province),
-            "province" => $this->city->province,
+            "province" => [$this->city->province,
+                'cities'=>$this->city->province->cities],
 //            "city" => new CityResource($this->city),
             "city" => $this->city,
 //            "sectors" => $this->sectors,
