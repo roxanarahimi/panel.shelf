@@ -6,7 +6,7 @@
                     <div class="row px-3 ">
                         <div class="col-12 mb-3 ">
                             <div class="d-inline-block mt-5">
-                                <h3 class="mb-2 fw-bold d-block">{{ 'منطقه '+data.title }}</h3>
+                                <h3 class="mb-2 fw-bold d-block">{{ 'منطقه ' + data.title }}</h3>
                             </div>
                             <router-link :to="'/panel/edit/region/'+data.id" class="text-dark">
                 <span title="ویرایش استان"
@@ -19,15 +19,19 @@
                 </div>
                 <div class="row">
                     <div class="col-xxl-12 mb-5 ">
-                        <b class="mb-2 fw-bold d-block">{{ 'استان: '+data.city.province.title }}</b>
-                        <b class="mb-2 fw-bold d-block">{{ 'شهر: '+data.city.title }}</b>
+                        <b class="mb-2 fw-bold d-block">{{ 'استان: ' + data.city.province.title }}</b>
+                        <b class="mb-2 fw-bold d-block">{{ 'شهر: ' + data.city.title }}</b>
                         <b class="d-block mt-4">محله ها</b>
                         <ul>
-                            <li v-for="item in data.sectors"><router-link :to="'/panel/sector/'+item.id">{{ item.title }}</router-link></li>
+                            <li v-for="item in data.sectors">
+                                <router-link :to="'/panel/sector/'+item.id">{{ item.title }}</router-link>
+                            </li>
                         </ul>
- <b class="d-block mt-4">مشتری ها</b>
+                        <b class="d-block mt-4">مشتری ها</b>
                         <ul>
-                            <li v-for="item in data.customers"><router-link :to="'/panel/customer/'+item.id">{{ item.name }}</router-link></li>
+                            <li v-for="item in data.customers">
+                                <router-link :to="'/panel/customer/'+item.id">{{ item.name }}</router-link>
+                            </li>
                         </ul>
 
                     </div>
