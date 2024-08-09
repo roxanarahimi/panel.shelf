@@ -6,8 +6,8 @@
                 <tr>
                     <th class="table-first-cell" scope="col"></th>
                     <th scope="col">عنوان</th>
-                    <th scope="col" class="d-none d-xl-table-cell text_cell">استان</th>
                     <th class="col" scope="col">شهر</th>
+                    <th scope="col" class="d-none d-xl-table-cell text_cell">استان</th>
                     <th class="d-none d-md-table-cell" scope="col">تاریخ ثبت</th>
                     <th scope="col" class="active_cell">وضعیت</th>
                     <th scope="col"></th>
@@ -19,13 +19,13 @@
                     <td>
                         <router-link :to="'/panel/region/'+data.id">{{ data.title }}</router-link>
                     </td>
-                    <td class="d-none d-xl-table-cell text_cell">
-                        {{ data.province.title }}
-                    </td>
+
                     <td class="d-none d-xl-table-cell text_cell">
                         {{ data.city.title }}
                     </td>
-                    <td class="d-none d-md-table-cell date_cell">{{ data.created_at }}</td>
+                    <td class="d-none d-xl-table-cell text_cell">
+                        {{ data.city.province.title }}
+                    </td>  <td class="d-none d-md-table-cell date_cell">{{ data.created_at }}</td>
                     <td class="active_cell">
                         <span @click="activeToggle(model,data.id)" v-if="data.active"
                               class="badge bg-success text-light"><i class="bi bi-eye-fill"></i></span>

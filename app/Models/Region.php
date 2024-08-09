@@ -9,10 +9,7 @@ class Region extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-//    public function sectors()
-//    {
-//        return $this->hasMany(Sector::class,  'region_id', 'id');
-//    }
+
      public function customers()
     {
         return $this->hasMany(Customer::class,  'region_id', 'id');

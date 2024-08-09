@@ -21,12 +21,6 @@
                     <div class="col-xxl-12 mb-5 ">
                         <b class="mb-2 fw-bold d-block">{{ 'استان: ' + data.city.province.title }}</b>
                         <b class="mb-2 fw-bold d-block">{{ 'شهر: ' + data.city.title }}</b>
-                        <b class="d-block mt-4">محله ها</b>
-                        <ul>
-                            <li v-for="item in data.sectors">
-                                <router-link :to="'/panel/sector/'+item.id">{{ item.title }}</router-link>
-                            </li>
-                        </ul>
                         <b class="d-block mt-4">مشتری ها</b>
                         <ul>
                             <li v-for="item in data.customers">
