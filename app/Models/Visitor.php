@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Visitor extends Model
+{
+    use HasFactory;
+    protected $guarded = ['id'];
+
+    public function forms()
+    {
+        return $this->hasMany(Form::class,'visitor_id','id')->orderByDesc('id');
+    }
+    public function lastForms()
+    {
+        return $this->hasMany(Form::class,'visitor_id','id')->orderByDesc('id')->take(5);
+    }
+}
