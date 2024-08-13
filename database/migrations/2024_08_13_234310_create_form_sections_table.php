@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('form_sku_categories', function (Blueprint $table) {
+        Schema::create('form_sections', function (Blueprint $table) {
             $table->id();
             $table->integer('form_id');
 
@@ -43,6 +43,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('form_sku_categories');
+        Schema::dropIfExists('form_sections');
     }
 };

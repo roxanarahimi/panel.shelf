@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\FormResource;
 use App\Models\Form;
+use App\Models\FormSection;
+use App\Models\FormSectionSku;
+use App\Models\FormSku;
+use App\Models\FormSkuCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -39,7 +43,7 @@ class FormController extends Controller
     public function indexSite(Request $request)
     {
         try {
-            $data = Form::orderBy('id')->where('visitor_id', $request['visitor_id'] )->get();
+            $data = Form::orderBy('id')->where('visitor_id', $request['visitor_id'])->get();
 
             return response(FormResource::collection($data), 200);
 //            return response(new FormResource($data), 200);
@@ -47,10 +51,11 @@ class FormController extends Controller
             return response($exception);
         }
     }
+
     public function show(Form $form)
     {
         try {
-            return response( new FormResource($form), 200);
+            return response(new FormResource($form), 200);
         } catch (\Exception $exception) {
             return response($exception);
         }
@@ -91,18 +96,38 @@ class FormController extends Controller
 //            return response()->json($validator->messages(), 422);
 //        }
         try {
-            return $request;
-//            'sku_category_id',
-//            'brand_id',
-//             'sku_ids',
+
             $form = Form::create([
-            'face'=>$request['face'],
-            'presence'=>$request['presence'],
-            'expire_date'=>$request['expire_date'],
-            'label_price'=>$request['label_price'],
-            'sale_price'=>$request['sale_price'],
-            'distribute_price'=>$request['distribute_price']
+                'customer_id' => $request['customer_id'],
+                'visitor_id' => $request['visitor_id'],
             ]);
+            foreach($request['form'] as $section){
+                $formSection = FormSection::create([
+                    'form_id' => $form['id'],
+
+                    'sku_category_id' => $section['sku_category_id'],
+                    'brand_id' => $section['brand_id'],
+
+                    'space' => $section['space'],
+                    'layout' => $section['layout'],
+//                'image' => $section['image'],
+
+                    'face' => $section['face'],
+                    'presence' => $section['presence'],
+                    'expire_date' => $section['expire_date'],
+
+                    'label_price' => $section['label_price'],
+                    'sale_price' => $section['sale_price'],
+                    'distribute_price' => $section['distribute_price']
+                ]);
+                foreach($section['sku_ids'] as $skuId){
+                    FormSectionSku::create([
+                        'form_section_id' => $formSection['id'],
+                        'sku_id' => $skuId,
+                    ]);
+                }
+            }
+
 
             if ($request['image']) {
                 $name = 'form_' . $form['id'] . '_' . uniqid() . '.png';

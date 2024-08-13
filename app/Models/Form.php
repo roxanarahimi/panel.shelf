@@ -18,16 +18,9 @@ class Form extends Model
     {
         return $this->hasOne(Customer::class, 'customer_id', 'id');
     }
-    public function skuCategories()
+     public function sections()
     {
-        return $this->hasMany(SkuCategory::class, 'sku_category_id', 'id');
+        return $this->hasMany(FormSection::class, 'form_id', 'id');
     }
-    public function brands()
-    {
-        return $this->hasMany(BrandSkuCategory::class, 'brand_id', 'id');
-    }
-    public function sku()
-    {
-        return $this->hasMany(FormSku::class, 'form_id', 'id');
-    }
+
 }
