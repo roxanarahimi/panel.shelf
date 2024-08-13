@@ -3,8 +3,6 @@
 namespace App\Http\Resources;
 
 use App\Http\Controllers\DateController;
-use App\Models\Customer;
-use App\Models\Visitor;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class FormResource extends JsonResource
@@ -20,9 +18,12 @@ class FormResource extends JsonResource
         return [
             "id" => (string)$this->id,
             "mobile" => $this->mobile,
-            "visitor" => new VisitorResource::($this->visitor),
-            "customer" => new CustomerResource::($this->customer),
+//            "visitor" => new VisitorResource($this->visitor),
+//            "customer" => new CustomerResource($this->customer),
             "sections" => FormSectionResource::collection($this->sections),
+            "visitor" => $this->visitor,
+            "customer" => $this->customer,
+//            "sections" => $this->sections,
 
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],
             "updated_at" => explode(' ',(new DateController)->toPersian($this->updated_at))[0],

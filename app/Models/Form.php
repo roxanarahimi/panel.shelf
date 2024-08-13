@@ -12,11 +12,11 @@ class Form extends Model
 
     public function visitor()
     {
-        return $this->belongsTo(Visitor::class, 'visitor_id', 'id');
+        return $this->belongsTo(Visitor::class,  'visitor_id','id');
     }
     public function customer()
     {
-        return $this->hasOne(Customer::class, 'customer_id', 'id');
+        return $this->belongsTo(Customer::class,'customer_id','id');
     }
      public function sections()
     {

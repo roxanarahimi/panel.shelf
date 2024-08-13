@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Controllers\DateController;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class FormSectionSkuResource extends JsonResource
@@ -14,6 +15,12 @@ class FormSectionSkuResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            "id" => (string)$this->id,
+            "sku" => $this->sku,
+
+            "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],
+            "updated_at" => explode(' ',(new DateController)->toPersian($this->updated_at))[0],
+        ];
     }
 }

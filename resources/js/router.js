@@ -273,6 +273,19 @@ const routes = [
         params: true
     },
 
+    {
+        path: "/panel/forms",
+        component: () => import(/* webpackChunkName: "formAllData" */ './components/panel/allData'),
+        name: "formAllData",
+        params: true,
+        props: true
+    },
+    {
+        path: "/panel/form/:id",
+        name: "Form",
+        component: () => import(/* webpackChunkName: "Form" */ '../js/components/panel/form/Form'),
+        params: true
+    },
 
     {
         path: "/panel/user/:id",

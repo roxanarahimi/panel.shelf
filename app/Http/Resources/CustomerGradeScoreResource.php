@@ -15,7 +15,7 @@ class CustomerGradeScoreResource extends JsonResource
      */
     public function toArray($request)
     {
-        $sum = $this->sector->score+$this->meterage+$this->product_variety+$this->product_layout+$this->equipment;
+        $sum = $this->sector?->score || 0 +$this->meterage+$this->product_variety +$this->product_layout +$this->equipment;
         $grade = '';
         if ($sum>= 21 && $sum <= 30){
            $grade =  'A';

@@ -55,13 +55,15 @@ import regionsTable from "./region/regionsTable";
 import sectorsTable from "./sector/sectorsTable";
 import customersTable from "./customer/customersTable";
 import skusTable from "./sku/skusTable";
+import formsTable from "./form/formsTable";
 
 
 export default {
   components: {
     Loader, AllDataContainer, Pagination, productsTable, usersTable,
     adminsTable, brandsTable, visitorsTable,
-      provincesTable, citysTable, regionsTable, sectorsTable, customersTable, skusTable
+      provincesTable, citysTable, regionsTable, sectorsTable, customersTable, skusTable,
+      formsTable,
   },
   setup() {
     const model = ref();

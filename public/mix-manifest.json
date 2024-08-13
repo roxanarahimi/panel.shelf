@@ -36,5 +36,6 @@
     "/js/Login.js": "/js/Login.js",
     "/js/Profile.js": "/js/Profile.js",
     "/js/Error404.js": "/js/Error404.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/Form.js": "/js/Form.js"
 }
