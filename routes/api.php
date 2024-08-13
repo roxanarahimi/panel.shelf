@@ -325,6 +325,28 @@ Route::controller(App\Http\Controllers\VisitorController::class)->group(function
         Route::get('/active/visitor/{visitor}', 'activeToggle');
     });
 });
+Route::controller(App\Http\Controllers\FormController::class)->group(function () {
+
+    Route::get('/form', 'indexSite');
+    Route::get('/form/{form}', 'show');
+
+    Route::post('/form', 'store');
+    Route::post('/form/{form}', 'update');
+
+    Route::get('/latest/form', 'latestSite');
+    Route::get('/article/by/form/{id}', 'byCat');
+    Route::post('/form/login', 'login');
+
+    Route::prefix('panel')->group(function () {
+
+        Route::get('/form', 'index');
+        Route::get('/form/{form}', 'show');
+
+        Route::get('/delete/form/{id}', 'destroy');
+
+        Route::get('/active/visitor/{visitor}', 'activeToggle');
+    });
+});
 
 //other API'S
 Route::get('/category/product', [\App\Http\Controllers\ProductCategoryController::class, 'indexSite']);
