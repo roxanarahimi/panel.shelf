@@ -101,6 +101,7 @@ class FormController extends Controller
             $form = Form::create([
                 'customer_id' => $request['customer_id'],
                 'visitor_id' => $request['visitor_id'],
+                'description' => $request['description'],
             ]);
             foreach($request['form'] as $section){
                 $formSection = FormSection::create([

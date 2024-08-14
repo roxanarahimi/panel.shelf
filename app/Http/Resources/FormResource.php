@@ -24,6 +24,7 @@ class FormResource extends JsonResource
             "visitor" => $this->visitor,
             "customer" => $this->customer,
 //            "sections" => $this->sections,
+            "description" => $this->description,
 
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],
             "updated_at" => explode(' ',(new DateController)->toPersian($this->updated_at))[0],

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('visitor_id');
             $table->integer('customer_id');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }
