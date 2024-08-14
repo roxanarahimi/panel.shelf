@@ -8,6 +8,7 @@ use App\Models\FormSection;
 use App\Models\FormSectionSku;
 use App\Models\FormSku;
 use App\Models\FormSkuCategory;
+use App\Models\Sku;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -121,10 +122,14 @@ class FormController extends Controller
                     'distribute_price' => $section['distribute_price']
                 ]);
                 foreach($section['sku_ids'] as $skuId){
-                    FormSectionSku::create([
-                        'form_section_id' => $formSection['id'],
-                        'sku_id' => $skuId,
-                    ]);
+//                    $sku = Sku::find($skuId);
+//                    if($sku->sku_category_id == $section['sku_category_id'] && $sku->brand_id == $section['brand_id'] ){
+                        FormSectionSku::create([
+                            'form_section_id' => $formSection['id'],
+                            'sku_id' => $skuId,
+                        ]);
+//                    }
+
                 }
             }
 

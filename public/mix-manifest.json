@@ -31,11 +31,11 @@
     "/js/VisitorCreate.js": "/js/VisitorCreate.js",
     "/js/VisitorEdit.js": "/js/VisitorEdit.js",
     "/js/Visitor.js": "/js/Visitor.js",
+    "/js/Form.js": "/js/Form.js",
     "/js/User.js": "/js/User.js",
     "/js/UserEdit.js": "/js/UserEdit.js",
     "/js/Login.js": "/js/Login.js",
     "/js/Profile.js": "/js/Profile.js",
     "/js/Error404.js": "/js/Error404.js",
-    "/css/app.css": "/css/app.css",
-    "/js/Form.js": "/js/Form.js"
+    "/css/app.css": "/css/app.css"
 }
