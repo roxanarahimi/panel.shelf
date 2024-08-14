@@ -26,7 +26,7 @@ return new class extends Migration
 
             $table->integer('face');
             $table->integer('presence');
-            $table->integer('expire_date');
+            $table->string('expire_date');
 
             $table->integer('label_price');
             $table->integer('sale_price');
