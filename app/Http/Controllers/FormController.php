@@ -112,7 +112,6 @@ class FormController extends Controller
 
                     'space' => $section['space'],
                     'layout' => $section['layout'],
-//                'image' => $section['image'],
 
                     'face' => $section['face'],
                     'presence' => $section['presence'],
@@ -122,6 +121,9 @@ class FormController extends Controller
                     'sale_price' => $section['sale_price'],
                     'distribute_price' => $section['distribute_price']
                 ]);
+                if($section['image'] != ''){
+                    $formSection->update([ 'image' => $section['image']]);
+                }
                 foreach($section['sku_ids'] as $skuId){
 //                    $sku = Sku::find($skuId);
 //                    if($sku->sku_category_id == $section['sku_category_id'] && $sku->brand_id == $section['brand_id'] ){

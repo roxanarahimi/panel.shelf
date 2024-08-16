@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->string('space');
             $table->string('layout');
-            $table->string('image');
+            $table->longText('image')->nullable();
 
             $table->integer('face');
             $table->integer('presence');

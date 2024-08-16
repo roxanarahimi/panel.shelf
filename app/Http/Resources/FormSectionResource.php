@@ -27,6 +27,7 @@ class FormSectionResource extends JsonResource
             "label_price" => $this->label_price,
             "sale_price" => $this->sale_price,
             "distribute_price" => $this->distribute_price,
+            "image" => $this->image,
 
             "skuCategory" => new SkuCategoryResource($this->skuCategory),
             "brand" => new BrandResource($this->brand),

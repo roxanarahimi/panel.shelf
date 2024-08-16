@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('product_variety');
             $table->integer('product_layout');
             $table->integer('equipment');
+            $table->longText('image')->nullable();
             $table->integer('sector_id');
             $table->timestamps();
         });

@@ -69,6 +69,9 @@ class CustomerGradeScoreController extends Controller
                     "product_layout" => $request['product_layout'],
                     "equipment" => $request['equipment'],
                 ]);
+                if($request['image'] != ''){
+                    $score->update([ 'image' => $request['image']]);
+                }
             } else {
                 $score = CustomerGradeScore::create([
                     "customer_id" => $request['customer_id'],
@@ -78,6 +81,9 @@ class CustomerGradeScoreController extends Controller
                     "product_layout" => $request['product_layout'],
                     "equipment" => $request['equipment'],
                 ]);
+                if($request['image'] != ''){
+                    $score->update([ 'image' => $request['image']]);
+                }
             }
             return response(new CustomerGradeScoreResource($score), 201);
 

@@ -33,6 +33,7 @@ class CustomerGradeScoreResource extends JsonResource
             "product_variety" => $this->product_variety,
             "product_layout" => $this->product_layout,
             "equipment" => $this->equipment,
+            "image" => $this->image,
             "grade"=> $grade,
 
 
