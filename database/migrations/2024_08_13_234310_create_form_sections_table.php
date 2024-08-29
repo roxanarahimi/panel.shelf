@@ -24,13 +24,7 @@ return new class extends Migration
             $table->string('layout');
             $table->longText('image')->nullable();
 
-            $table->integer('face');
-            $table->integer('presence');
-            $table->string('expire_date');
 
-            $table->integer('label_price');
-            $table->integer('sale_price');
-            $table->integer('distribute_price');
 
             $table->timestamps();
         });

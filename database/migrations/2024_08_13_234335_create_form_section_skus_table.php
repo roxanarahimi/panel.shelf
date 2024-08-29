@@ -17,6 +17,16 @@ return new class extends Migration
             $table->id();
             $table->integer('form_section_id');
             $table->integer('sku_id');
+
+            $table->integer('face');
+            $table->integer('presence');
+            $table->string('expire_date');
+
+            $table->integer('label_price');
+            $table->integer('sale_price');
+            $table->integer('distribute_price');
+
+
             $table->timestamps();
         });
     }

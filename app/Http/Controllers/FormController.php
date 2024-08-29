@@ -113,23 +113,24 @@ class FormController extends Controller
                     'space' => $section['space'],
                     'layout' => $section['layout'],
 
-                    'face' => $section['face'],
-                    'presence' => $section['presence'],
-                    'expire_date' => $section['expire_date'],
-
-                    'label_price' => $section['label_price'],
-                    'sale_price' => $section['sale_price'],
-                    'distribute_price' => $section['distribute_price']
                 ]);
                 if($section['image'] != ''){
                     $formSection->update([ 'image' => $section['image']]);
                 }
-                foreach($section['sku_ids'] as $skuId){
+                foreach($section['skus'] as $sku){
 //                    $sku = Sku::find($skuId);
 //                    if($sku->sku_category_id == $section['sku_category_id'] && $sku->brand_id == $section['brand_id'] ){
                         FormSectionSku::create([
                             'form_section_id' => $formSection['id'],
-                            'sku_id' => $skuId,
+                            'sku_id' => $sku['id'],
+
+                            'face' => $sku['face'],
+                            'presence' => $sku['presence'],
+                            'expire_date' => $sku['expire_date'],
+
+                            'label_price' => $sku['label_price'],
+                            'sale_price' => $sku['sale_price'],
+                            'distribute_price' => $sku['distribute_price']
                         ]);
 //                    }
 
