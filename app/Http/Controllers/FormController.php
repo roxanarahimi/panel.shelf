@@ -122,7 +122,7 @@ class FormController extends Controller
 //                    if($sku->sku_category_id == $section['sku_category_id'] && $sku->brand_id == $section['brand_id'] ){
                         FormSectionSku::create([
                             'form_section_id' => $formSection['id'],
-                            'sku_id' => $sku['id'],
+                            'sku_id' => $sku['sku_id'],
 
                             'face' => $sku['face'],
                             'presence' => $sku['presence'],

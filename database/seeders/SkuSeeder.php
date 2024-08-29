@@ -289,12 +289,54 @@ class SkuSeeder extends Seeder
             array("title"=>"ویفر شکلاتی بایرن مونیخ کلاب پلاس ", "sku_category_id"=> 4, "brand_id"=> 24, "weight"=>"0"),
             array("title"=>"ویفر شکلاتی منچستر کلاب پلاس ", "sku_category_id"=> 4, "brand_id"=> 24, "weight"=>"0")
         );
+        $brand_sku_categories = array(
+            array('id' => '1','brand_id' => '24','sku_category_id' => '4'),
+            array('id' => '2','brand_id' => '1','sku_category_id' => '1'),
+            array('id' => '3','brand_id' => '1','sku_category_id' => '2'),
+            array('id' => '4','brand_id' => '1','sku_category_id' => '3'),
+            array('id' => '5','brand_id' => '2','sku_category_id' => '1'),
+            array('id' => '6','brand_id' => '2','sku_category_id' => '2'),
+            array('id' => '7','brand_id' => '2','sku_category_id' => '3'),
+            array('id' => '8','brand_id' => '3','sku_category_id' => '1'),
+            array('id' => '9','brand_id' => '3','sku_category_id' => '2'),
+            array('id' => '10','brand_id' => '3','sku_category_id' => '3'),
+            array('id' => '11','brand_id' => '23','sku_category_id' => '4'),
+            array('id' => '12','brand_id' => '22','sku_category_id' => '4'),
+            array('id' => '13','brand_id' => '21','sku_category_id' => '4'),
+            array('id' => '14','brand_id' => '20','sku_category_id' => '2'),
+            array('id' => '15','brand_id' => '20','sku_category_id' => '3'),
+            array('id' => '16','brand_id' => '19','sku_category_id' => '2'),
+            array('id' => '17','brand_id' => '18','sku_category_id' => '2'),
+            array('id' => '18','brand_id' => '17','sku_category_id' => '2'),
+            array('id' => '19','brand_id' => '16','sku_category_id' => '2'),
+            array('id' => '20','brand_id' => '15','sku_category_id' => '2'),
+            array('id' => '21','brand_id' => '15','sku_category_id' => '3'),
+            array('id' => '22','brand_id' => '14','sku_category_id' => '2'),
+            array('id' => '23','brand_id' => '13','sku_category_id' => '2'),
+            array('id' => '24','brand_id' => '12','sku_category_id' => '1'),
+            array('id' => '25','brand_id' => '11','sku_category_id' => '1'),
+            array('id' => '26','brand_id' => '10','sku_category_id' => '1'),
+            array('id' => '27','brand_id' => '9','sku_category_id' => '1'),
+            array('id' => '28','brand_id' => '9','sku_category_id' => '2'),
+            array('id' => '29','brand_id' => '8','sku_category_id' => '1'),
+            array('id' => '30','brand_id' => '7','sku_category_id' => '1'),
+            array('id' => '31','brand_id' => '6','sku_category_id' => '1'),
+            array('id' => '32','brand_id' => '5','sku_category_id' => '1'),
+            array('id' => '33','brand_id' => '4','sku_category_id' => '1'),
+            array('id' => '34','brand_id' => '4','sku_category_id' => '2'),
+            array('id' => '35','brand_id' => '4','sku_category_id' => '3')
+        );
         foreach ($brand as $item) {
             \App\Models\Brand::create($item);
-        } foreach ($cat as $item) {
+        }
+        foreach ($cat as $item) {
             \App\Models\SkuCategory::create($item);
-        } foreach ($sku as $item) {
+        }
+        foreach ($sku as $item) {
             \App\Models\Sku::create($item);
+        }
+        foreach ($brand_sku_categories as $item) {
+            \App\Models\BrandSkuCategory::create($item);
         }
     }
 }

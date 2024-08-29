@@ -18,6 +18,13 @@ class FormSectionSkuResource extends JsonResource
         return [
             "id" => (string)$this->id,
             "sku" => $this->sku,
+            "face" => $this->face,
+            "presence" => $this->presence,
+            "expire_date" => $this->expire_date,
+            "expire_date_space" => str_replace('-',' ',$this->expire_date),
+            "label_price" => number_format($this->label_price),
+            "sale_price" => number_format($this->sale_price),
+            "distribute_price" => number_format($this->distribute_price),
 
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],
             "updated_at" => explode(' ',(new DateController)->toPersian($this->updated_at))[0],
