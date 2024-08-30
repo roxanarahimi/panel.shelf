@@ -42,7 +42,7 @@
                                         <th class="text-center" >چیدمان</th>
                                     </tr>
                                     </thead>
-                                    <tbody v-for="(section,index) in data.sections" :key="index">
+                                    <tbody class="border-bottom" v-for="(section,index) in data.sections" :key="index">
                                     <tr v-for="(item,i) in section.skus" :key="i">
                                         <td class="text-nowrap">{{ item.sku.title }}</td>
                                         <td class="text-center text-nowrap">{{ item.face }}</td>
