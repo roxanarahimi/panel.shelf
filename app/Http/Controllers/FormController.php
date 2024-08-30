@@ -96,14 +96,16 @@ class FormController extends Controller
 //        if ($validator->fails()) {
 //            return response()->json($validator->messages(), 422);
 //        }
+//        return ;
         try {
-
+            $requestForm= json_decode($request['form'],true);
             $form = Form::create([
                 'customer_id' => $request['customer_id'],
                 'visitor_id' => $request['visitor_id'],
                 'description' => $request['description'],
             ]);
-            foreach($request['form'] as $section){
+            $i=0;
+            foreach($requestForm as $section){
                 $formSection = FormSection::create([
                     'form_id' => $form['id'],
 
@@ -114,8 +116,12 @@ class FormController extends Controller
                     'layout' => $section['layout'],
 
                 ]);
-                if($section['image'] != ''){
-                    $formSection->update([ 'image' => $section['image']]);
+                if($request->file('image_'.$i)){
+                    $img = $request->file('image_'.$i);
+                    $imageName = 'form_'.$form['id'] .'_section_'.$formSection['id'].'_'.uniqid().'.'.$img->extension();
+
+                    $img->storeAs('/public/images', $imageName);;
+                    $formSection->update([ 'image' => '/public/images/'.$imageName]);
                 }
                 foreach($section['skus'] as $sku){
 //                    $sku = Sku::find($skuId);
@@ -135,6 +141,7 @@ class FormController extends Controller
 //                    }
 
                 }
+                $i++;
             }
 
 

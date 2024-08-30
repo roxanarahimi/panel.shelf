@@ -40,6 +40,7 @@
                                         <th class="en" >قیمت پخش</th>
                                         <th class="en">فضای تبلیغاتی</th>
                                         <th class="text-center" >چیدمان</th>
+                                        <th class="text-center" >تصویر چیدمان</th>
                                     </tr>
                                     </thead>
                                     <tbody class="border-bottom" v-for="(section,index) in data.sections" :key="index">
@@ -51,8 +52,11 @@
                                         <td class="en text-nowrap">{{ item.label_price }}</td>
                                         <td class="en text-nowrap">{{ item.sale_price }}</td>
                                         <td class="en text-nowrap">{{ item.distribute_price }}</td>
-                                        <td class="en text-nowrap">{{ section.space }}</td>
-                                        <td class="text-center">{{ section.layout }}</td>
+                                        <td class="text-center align-middle text-nowrap" v-if="i==0" :rowspan="section.skus.length">{{ section.space }}</td>
+                                        <td class="text-center align-middle text-nowrap" v-if="i==0" :rowspan="section.skus.length">{{ section.layout }}</td>
+                                        <td class="text-center align-middle text-nowrap" v-if="i===0" :rowspan="section.skus.length">
+                                            <img v-if="section.image" :src="section.image" width="80px">
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>

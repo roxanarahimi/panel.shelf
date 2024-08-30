@@ -195,7 +195,9 @@ var _hoisted_20 = /*#__PURE__*/_withScopeId(function () {
     "class": "en"
   }, "فضای تبلیغاتی"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
     "class": "text-center"
-  }, "چیدمان")])], -1
+  }, "چیدمان"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+    "class": "text-center"
+  }, "تصویر چیدمان")])], -1
   /* HOISTED */
   );
 });
@@ -221,17 +223,15 @@ var _hoisted_26 = {
 var _hoisted_27 = {
   "class": "en text-nowrap"
 };
-var _hoisted_28 = {
-  "class": "en text-nowrap"
-};
-var _hoisted_29 = {
-  "class": "text-center"
-};
-var _hoisted_30 = {
+var _hoisted_28 = ["rowspan"];
+var _hoisted_29 = ["rowspan"];
+var _hoisted_30 = ["rowspan"];
+var _hoisted_31 = ["src"];
+var _hoisted_32 = {
   key: 1
 };
 
-var _hoisted_31 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_33 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "fw-bold"
   }, "این فرم موجود نیست", -1
@@ -239,7 +239,7 @@ var _hoisted_31 = /*#__PURE__*/_withScopeId(function () {
   );
 });
 
-var _hoisted_32 = [_hoisted_31];
+var _hoisted_34 = [_hoisted_33];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -314,17 +314,37 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           /* TEXT */
           ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_27, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.distribute_price), 1
           /* TEXT */
-          ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(section.space), 1
-          /* TEXT */
-          ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(section.layout), 1
-          /* TEXT */
-          )]);
+          ), i == 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", {
+            key: 0,
+            "class": "text-center align-middle text-nowrap",
+            rowspan: section.skus.length
+          }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(section.space), 9
+          /* TEXT, PROPS */
+          , _hoisted_28)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), i == 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", {
+            key: 1,
+            "class": "text-center align-middle text-nowrap",
+            rowspan: section.skus.length
+          }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(section.layout), 9
+          /* TEXT, PROPS */
+          , _hoisted_29)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), i === 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("td", {
+            key: 2,
+            "class": "text-center align-middle text-nowrap",
+            rowspan: section.skus.length
+          }, [section.image ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
+            key: 0,
+            src: section.image,
+            width: "80px"
+          }, null, 8
+          /* PROPS */
+          , _hoisted_31)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)], 8
+          /* PROPS */
+          , _hoisted_30)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
         }), 128
         /* KEYED_FRAGMENT */
         ))]);
       }), 128
       /* KEYED_FRAGMENT */
-      ))])])])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_30, _hoisted_32))])];
+      ))])])])])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_32, _hoisted_34))])];
     }),
     _: 1
     /* STABLE */
