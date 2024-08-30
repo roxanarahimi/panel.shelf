@@ -19,40 +19,48 @@
                 </div>
                 <div class="row">
                     <div class="col-xxl-12 my-5 ">
-                        <p><b>کد مشتری </b>{{ data.customer.code }}</p>
-                        <p><b>کارشناس </b>{{ data.visitor.name }}</p>
+                        <p><b>کد مشتری </b><router-link :to="'/panel/customer/'+data.customer.id">{{ data.customer.code }}</router-link></p>
+                        <p><b>نام مشتری </b>{{ data.customer.name }}</p>
+                        <p><b>کارشناس </b><router-link :to="'/panel/visitor/'+data.visitor.id">{{ data.visitor.name }}</router-link></p>
+                        <p><b>تاریخ ثبت فرم </b><span class="d-lg-inline-block en">{{ data.created_at }}</span></p>
                     </div>
                 </div>
                 <div class="row">
-                    <div v-for="item in data.sections" class="col-6 col-md-4">
                         <div  class="card rounded h-100">
                             <div class="card-body p-md-5 ">
-                              <div class="d-flex justify-content-between">
-                                  <p><b>نوع محصول </b>{{ item.skuCategory.title }}</p>
-                                  <p><b>برند </b>{{ item.brand.title }}</p>
-                              </div>
-                              <div class="d-flex justify-content-between">
-                                  <p><b>فضای تبلیغاتی </b>{{ item.space }}</p>
-                                  <p><b>چیدمان </b>{{ item.layout }}</p>
-                              </div>
-                                <p><b>sku های موجود </b></p>
-                                <ul>
-                                    <li v-for="sku in item.skus">{{ sku.sku.title }}</li>
-                                </ul>
+                                <table class="table table-responsive rounded mb-0">
+                                    <thead>
+                                    <tr class="">
+                                        <th class="" >sku</th>
+                                        <th class="text-center" >تعداد در دیدرس</th>
+                                        <th class="text-center" >شدت حضور</th>
+                                        <th class="en">تاریخ انقضا</th>
+                                        <th class="en" >قیمت بسته</th>
+                                        <th class="en" >قیمت فروش</th>
+                                        <th class="en" >قیمت پخش</th>
+                                        <th class="en">فضای تبلیغاتی</th>
+                                        <th class="text-center" >چیدمان</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody v-for="(section,index) in data.sections" :key="index">
+                                    <tr v-for="(item,i) in section.skus" :key="i">
+                                        <td class="text-nowrap">{{ item.sku.title }}</td>
+                                        <td class="text-center text-nowrap">{{ item.face }}</td>
+                                        <td class="text-center text-nowrap">{{ item.presence }}</td>
+                                        <td class="en text-nowrap">{{ item.expire_date }}</td>
+                                        <td class="en text-nowrap">{{ item.label_price }}</td>
+                                        <td class="en text-nowrap">{{ item.sale_price }}</td>
+                                        <td class="en text-nowrap">{{ item.distribute_price }}</td>
+                                        <td class="en text-nowrap">{{ section.space }}</td>
+                                        <td class="text-center">{{ section.layout }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
 
-                                <div class="">
-                                    <p><b>تعداد در دیدرس </b>{{ item.face }}</p>
-                                    <p><b>شدت حضور </b>{{ item.presence }}</p>
-                                    <p><b>تاریخ انقضا </b><span class="d-inline-block en">{{ item.expire_date }}</span></p>
-                                    <p><b> قیمت بسته بندی</b>{{ item.label_price }}</p>
-                                    <p><b> قیمت فروش </b>{{ item.sale_price }}</p>
-                                    <p><b>قیمت پخش </b>{{ item.distribute_price }}</p>
-                                </div>
                             </div>
 
 
                         </div>
-                    </div>
                 </div>
 
             </div>
