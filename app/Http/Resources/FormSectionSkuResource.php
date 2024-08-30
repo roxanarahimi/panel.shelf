@@ -21,7 +21,6 @@ class FormSectionSkuResource extends JsonResource
             "face" => $this->face,
             "presence" => $this->presence,
             "expire_date" => $this->expire_date,
-            "expire_date_space" => str_replace('-',' ',$this->expire_date),
             "label_price" => number_format($this->label_price),
             "sale_price" => number_format($this->sale_price),
             "distribute_price" => number_format($this->distribute_price),
