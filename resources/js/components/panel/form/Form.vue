@@ -55,7 +55,7 @@
                                         <td class="text-center align-middle text-nowrap" v-if="i==0" :rowspan="section.skus.length">{{ section.space }}</td>
                                         <td class="text-center align-middle text-nowrap" v-if="i==0" :rowspan="section.skus.length">{{ section.layout }}</td>
                                         <td class="text-center align-middle text-nowrap" v-if="i===0" :rowspan="section.skus.length">
-                                            <img v-if="section.image" :src="section.image" width="80px">
+                                            <img v-if="section.image" :src="'/storage/app'+section.image" width="80px">
                                         </td>
                                     </tr>
                                     </tbody>

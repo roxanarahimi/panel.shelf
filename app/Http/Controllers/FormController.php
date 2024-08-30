@@ -98,14 +98,14 @@ class FormController extends Controller
 //        }
 //        return ;
         try {
-            $requestForm= json_decode($request['form'],true);
+            $requestForm = json_decode($request['form'], true);
             $form = Form::create([
                 'customer_id' => $request['customer_id'],
                 'visitor_id' => $request['visitor_id'],
                 'description' => $request['description'],
             ]);
-            $i=0;
-            foreach($requestForm as $section){
+            $i = 0;
+            foreach ($requestForm as $section) {
                 $formSection = FormSection::create([
                     'form_id' => $form['id'],
 
@@ -116,42 +116,33 @@ class FormController extends Controller
                     'layout' => $section['layout'],
 
                 ]);
-                if($request->file('image_'.$i)){
-                    $img = $request->file('image_'.$i);
-                    $imageName = 'form_'.$form['id'] .'_section_'.$formSection['id'].'_'.uniqid().'.'.$img->extension();
+                if ($request->file('image_' . $i)) {
+                    $img = $request->file('image_' . $i);
+                    $imageName = 'form_' . $form['id'] . '_section_' . $formSection['id'] . '_' . uniqid() . '.' . $img->extension();
 
                     $img->storeAs('/public/images', $imageName);;
-                    $formSection->update([ 'image' => '/public/images/'.$imageName]);
+                    $formSection->update(['image' => '/images/' . $imageName]);
+                    (new ImageController)->resizeImage('/storage/app/public/images', $imageName);
+
                 }
-                foreach($section['skus'] as $sku){
-//                    $sku = Sku::find($skuId);
-//                    if($sku->sku_category_id == $section['sku_category_id'] && $sku->brand_id == $section['brand_id'] ){
-                        FormSectionSku::create([
-                            'form_section_id' => $formSection['id'],
-                            'sku_id' => $sku['sku_id'],
+                foreach ($section['skus'] as $sku) {
+                    FormSectionSku::create([
+                        'form_section_id' => $formSection['id'],
+                        'sku_id' => $sku['sku_id'],
 
-                            'face' => $sku['face'],
-                            'presence' => $sku['presence'],
-                            'expire_date' => $sku['expire_date'],
+                        'face' => $sku['face'],
+                        'presence' => $sku['presence'],
+                        'expire_date' => $sku['expire_date'],
 
-                            'label_price' => $sku['label_price'],
-                            'sale_price' => $sku['sale_price'],
-                            'distribute_price' => $sku['distribute_price']
-                        ]);
-//                    }
-
+                        'label_price' => $sku['label_price'],
+                        'sale_price' => $sku['sale_price'],
+                        'distribute_price' => $sku['distribute_price']
+                    ]);
                 }
                 $i++;
             }
 
 
-            if ($request['image']) {
-                $name = 'form_' . $form['id'] . '_' . uniqid() . '.png';
-                $image_path = (new ImageController)->uploadImage($request['image'], $name, 'images/forms/');
-                $form->update(['image' => '/' . $image_path]);
-
-                (new ImageController)->resizeImage('images/forms/', $name);
-            }
 
             return response(new FormResource($form), 201);
         } catch (\Exception $exception) {
