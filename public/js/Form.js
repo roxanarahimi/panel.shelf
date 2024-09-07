@@ -332,7 +332,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             rowspan: section.skus.length
           }, [section.image ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("img", {
             key: 0,
-            src: '/storage/app' + section.image,
+            src: 'https://webagent.ir/projects/ShelfMonitoring/panel.shelf/storage/app' + section.image,
             width: "80px"
           }, null, 8
           /* PROPS */
