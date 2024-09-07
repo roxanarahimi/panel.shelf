@@ -42515,12 +42515,12 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "home") return "js/home.js";
-/******/ 			if ({"Categories":1,"productPriority":1,"skuAllData":1,"ProductCreate":1,"ProductEdit":1,"Product":1,"SkuCreate":1,"SkuEdit":1,"BrandCreate":1,"BrandEdit":1,"Brand":1,"ProvinceCreate":1,"ProvinceEdit":1,"Province":1,"CityCreate":1,"CityEdit":1,"RegionCreate":1,"RegionEdit":1,"Region":1,"SectorCreate":1,"SectorEdit":1,"Sector":1,"CustomerCreate":1,"CustomerEdit":1,"Customer":1,"VisitorCreate":1,"VisitorEdit":1,"Visitor":1,"UserEdit":1,"Login":1,"Profile":1,"Error404":1}[chunkId]) return "js/" + chunkId + ".js";
-/******/ 			if (chunkId === "Sku") return "js/Sku.js";
-/******/ 			if (chunkId === "City") return "js/City.js";
-/******/ 			if (chunkId === "Form") return "js/Form.js";
-/******/ 			if (chunkId === "User") return "js/User.js";
+/******/ 			if (chunkId === "home") return "public/js/home.js";
+/******/ 			if ({"Categories":1,"productPriority":1,"skuAllData":1,"ProductCreate":1,"ProductEdit":1,"Product":1,"SkuCreate":1,"SkuEdit":1,"BrandCreate":1,"BrandEdit":1,"Brand":1,"ProvinceCreate":1,"ProvinceEdit":1,"Province":1,"CityCreate":1,"CityEdit":1,"RegionCreate":1,"RegionEdit":1,"Region":1,"SectorCreate":1,"SectorEdit":1,"Sector":1,"CustomerCreate":1,"CustomerEdit":1,"Customer":1,"VisitorCreate":1,"VisitorEdit":1,"Visitor":1,"UserEdit":1,"Login":1,"Profile":1,"Error404":1}[chunkId]) return "public/js/" + chunkId + ".js";
+/******/ 			if (chunkId === "Sku") return "public/js/Sku.js";
+/******/ 			if (chunkId === "City") return "public/js/City.js";
+/******/ 			if (chunkId === "Form") return "public/js/Form.js";
+/******/ 			if (chunkId === "User") return "public/js/User.js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
@@ -42630,8 +42630,8 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
+/******/ 			"/public/js/app": 0,
+/******/ 			"public/css/app": 0
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.j = (chunkId, promises) => {
@@ -42643,7 +42643,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 					if(installedChunkData) {
 /******/ 						promises.push(installedChunkData[2]);
 /******/ 					} else {
-/******/ 						if("css/app" != chunkId) {
+/******/ 						if("public/css/app" != chunkId) {
 /******/ 							// setup Promise in chunk cache
 /******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
 /******/ 							promises.push(installedChunkData[2] = promise);
@@ -42723,8 +42723,8 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["public/css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["public/css/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
