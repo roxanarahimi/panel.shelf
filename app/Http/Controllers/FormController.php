@@ -65,7 +65,7 @@ class FormController extends Controller
     public function getForms($id)
     {
         try {
-            $forms = Form::where('visitor_id',$id)->get();
+            $forms = Form::orderByDesc('id')->where('visitor_id',$id)->take(50)->get();
             return response(FormResource::collection($forms), 200);
         } catch (\Exception $exception) {
             return response($exception);
