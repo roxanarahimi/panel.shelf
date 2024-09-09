@@ -332,6 +332,7 @@ Route::controller(App\Http\Controllers\FormController::class)->group(function ()
 
     Route::post('/form', 'store');
     Route::post('/form/{form}', 'update');
+    Route::get('/forms/visitor/{id}', 'getForms');
 
 
     Route::prefix('panel')->group(function () {

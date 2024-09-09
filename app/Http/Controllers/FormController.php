@@ -62,6 +62,16 @@ class FormController extends Controller
         }
     }
 
+    public function getForms($id)
+    {
+        try {
+            $forms = Form::where('visitor_id',$id)->get();
+            return response(FormResource::collection($forms), 200);
+        } catch (\Exception $exception) {
+            return response($exception);
+        }
+    }
+
     public function saveImages($requestImages, $formId)
     {
         try {
