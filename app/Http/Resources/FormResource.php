@@ -17,7 +17,6 @@ class FormResource extends JsonResource
     {
         return [
             "id" => (string)$this->id,
-            "mobile" => $this->mobile,
 //            "visitor" => new VisitorResource($this->visitor),
 //            "customer" => new CustomerResource($this->customer),
             "sections" => FormSectionResource::collection($this->sections),
