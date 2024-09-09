@@ -19,9 +19,11 @@ class CustomerGradeScoreResource extends JsonResource
         $grade = '';
         if ($sum>= 21 && $sum <= 30){
            $grade =  'A';
-        }else if($sum>= 11 && $sum <= 20){
+        }
+        if($sum>= 11 && $sum <= 20){
             $grade =  'B';
-        }else if($sum>= 1 && $sum <= 10){
+        }
+        if($sum>= 1 && $sum <= 10){
             $grade =  'C';
         }
         return [
