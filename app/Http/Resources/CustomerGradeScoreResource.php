@@ -37,6 +37,7 @@ class CustomerGradeScoreResource extends JsonResource
             "equipment" => $this->equipment,
             "image" => $this->image,
             "grade"=> $grade,
+            "gsum"=> $sum,
 
 
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],
