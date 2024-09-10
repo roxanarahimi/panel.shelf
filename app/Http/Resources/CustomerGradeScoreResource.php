@@ -17,13 +17,13 @@ class CustomerGradeScoreResource extends JsonResource
     {
         $sum = $this->sector?->score || 0 +$this->meterage+$this->product_variety +$this->product_layout +$this->equipment;
         $grade = '';
-        if ($sum>= 21 && $sum <= 30){
+        if ($sum <= 30){
            $grade =  'A';
         }
-        if($sum>= 11 && $sum <= 20){
+        if($sum <= 20){
             $grade =  'B';
         }
-        if($sum>= 1 && $sum <= 10){
+        if($sum <= 10){
             $grade =  'C';
         }
         return [
