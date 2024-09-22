@@ -23,16 +23,16 @@
             <input @input="loadData" type="text" class="form-control" id="search">
         </div>
         <div v-if="this.$route.name == 'formAllData'" class="mb-3 col-lg-6" :class="{'d-none': model === 'foodSlide'}">
-            <label class="form-label" >بازه زمانی</label>
+            <label class="form-label">بازه زمانی</label>
             <DatePicker v-model="dateRange" format="YYYY-MM-DD"/>
         </div>
         <div v-if="dateRange" class="mb-3 col-lg-6" :class="{'d-none': model === 'foodSlide'}">
-            <label class="form-label" >  </label>
+            <label class="form-label"> </label>
             <p class="mb-0" @click="downloadFile"><b>خروجی اکسل </b>
                 <span style="cursor: pointer" title="دانلود"
                       class="mx-3 p-1 px-2 d-inline-block align-middle bg-dark text-light rounded-circle">
                                 <i class="bi bi-file-earmark-excel p-0 edit-pen"></i>
-                            </span>
+                </span>
             </p>
         </div>
         <div class="col-12 mb-3" v-if="allData && allData.length">
@@ -152,8 +152,8 @@ export default {
 
         });
 
-        const loadDataByDate= (p,per)=>{
-                page.value = p;
+        const loadDataByDate = (p, per) => {
+            page.value = p;
             document.querySelector('#loader').classList.remove('d-none');
             let perPage = per;
             let search = document.querySelector('#search')?.value || '';
@@ -184,16 +184,16 @@ export default {
             }, 4000);
         }
         watch(dateRange, () => {
-            loadDataByDate(1,document.querySelector('#perPage').value);
-        }, { deep: true });
+            loadDataByDate(1, document.querySelector('#perPage').value);
+        }, {deep: true});
 
-        const downloadFile=()=> {
+        const downloadFile = () => {
             let list = [];
-            if (allData.value){
-                if (pages.value>1){
-                        loadDataByDate(1,total.value);
+            if (allData.value) {
+                if (pages.value > 1) {
+                    loadDataByDate(1, total.value);
                 }
-                allData.value.forEach((form)=>{
+                allData.value.forEach((form) => {
                     if (form) {
                         let i = 0;
                         form.sections.forEach((item) => {
@@ -233,16 +233,16 @@ export default {
                 });
 
                 const data = list;
-                const fileName = 'report@'+dateRange.value;
+                const fileName = 'report@' + dateRange.value;
                 const exportType = exportFromJSON.types.xls;
 
                 if (data) exportFromJSON({data, fileName, exportType});
 
             }
-             }
+        }
 
         return {
-            dateRange,loadDataByDate, downloadFile,
+            dateRange, loadDataByDate, downloadFile,
             model, title, tooltip_new, allData, page, pages, total, labels,
             loadData, showDeleteModal, deleteInfo, activeToggle
         };
