@@ -21,7 +21,7 @@ class FormResource extends JsonResource
 //            "customer" => new CustomerResource($this->customer),
             "sections" => FormSectionResource::collection($this->sections),
             "visitor" => $this->visitor,
-            "customer" => $this->customer,
+            "customer" => new CustomerResource($this->customer),
 //            "sections" => $this->sections,
             "description" => $this->description,
 
