@@ -26,7 +26,7 @@
             <label class="form-label" >بازه زمانی</label>
             <DatePicker v-model="dateRange" format="YYYY-MM-DD"/>
         </div>
-        <div v-if="this.$route.name == 'formAllData'" class="mb-3 col-lg-6" :class="{'d-none': model === 'foodSlide'}">
+        <div v-if="dateRange" class="mb-3 col-lg-6" :class="{'d-none': model === 'foodSlide'}">
             <label class="form-label" >  </label>
             <p class="mb-0" @click="downloadFile"><b>خروجی اکسل </b>
                 <span style="cursor: pointer" title="دانلود"

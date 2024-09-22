@@ -94,6 +94,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               "نام مشتری": name,
               "گرید": grade,
               "نام کارشناس": visitor,
+              "محصول": item.skuCategory.title,
+              "برند": item.brand.title,
               "sku": sku.sku.title,
               "تعداد در دیدرس": sku.face,
               " شدت حضور": sku.presence,
