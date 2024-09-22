@@ -78,9 +78,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         this.data.sections.forEach(function (item) {
           var j = 0;
           item.skus.forEach(function (sku) {
+            var _this2$data$customer$;
+
             var date = i == 0 && j == 0 ? _this2.data.created_at : '';
             var code = i == 0 && j == 0 ? _this2.data.customer.code : '';
             var name = i == 0 && j == 0 ? _this2.data.customer.name : '';
+            var grade = i == 0 && j == 0 ? (_this2$data$customer$ = _this2.data.customer.scores) === null || _this2$data$customer$ === void 0 ? void 0 : _this2$data$customer$.grade : '';
             var visitor = i == 0 && j == 0 ? _this2.data.visitor.name : '';
             var space = j == 0 ? item.space : '';
             var layout = j == 0 ? item.layout : '';
@@ -89,6 +92,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               "تاریخ ثبت": date,
               "کد مشتری": code,
               "نام مشتری": name,
+              "گرید": grade,
               "نام کارشناس": visitor,
               "sku": sku.sku.title,
               "تعداد در دیدرس": sku.face,
