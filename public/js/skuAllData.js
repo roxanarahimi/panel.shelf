@@ -488,10 +488,11 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
             form.sections.forEach(function (item) {
               var j = 0;
               item.skus.forEach(function (sku) {
+                var _form$customer$scores;
                 var date = i == 0 && j == 0 ? form.created_at : '';
                 var code = i == 0 && j == 0 ? form.customer.code : '';
                 var name = i == 0 && j == 0 ? form.customer.name : '';
-                var grade = i == 0 && j == 0 ? form.customerGrade : '';
+                var grade = i == 0 && j == 0 ? (_form$customer$scores = form.customer.scores) === null || _form$customer$scores === void 0 ? void 0 : _form$customer$scores.grade : '';
                 var visitor = i == 0 && j == 0 ? form.visitor.name : '';
                 var space = j == 0 ? item.space : '';
                 var layout = j == 0 ? item.layout : '';

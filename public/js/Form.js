@@ -72,10 +72,11 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         this.data.sections.forEach(function (item) {
           var j = 0;
           item.skus.forEach(function (sku) {
+            var _this2$data$customer$;
             var date = i == 0 && j == 0 ? _this2.data.created_at : '';
             var code = i == 0 && j == 0 ? _this2.data.customer.code : '';
             var name = i == 0 && j == 0 ? _this2.data.customer.name : '';
-            var grade = i == 0 && j == 0 ? _this2.data.customerGrade : '';
+            var grade = i == 0 && j == 0 ? (_this2$data$customer$ = _this2.data.customer.scores) === null || _this2$data$customer$ === void 0 ? void 0 : _this2$data$customer$.grade : '';
             var visitor = i == 0 && j == 0 ? _this2.data.visitor.name : '';
             var space = j == 0 ? item.space : '';
             var layout = j == 0 ? item.layout : '';

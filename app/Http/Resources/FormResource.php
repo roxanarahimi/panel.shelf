@@ -15,18 +15,15 @@ class FormResource extends JsonResource
      */
     public function toArray($request)
     {
-        if($this->customer->scores){
-        $scores = new CustomerGradeScoreResource($this->customer->scores);
-        $grade=$scores->grade;
-        }else{
-            $grade = '';
-        }
+
         return [
             "id" => (string)$this->id,
+
             "sections" => FormSectionResource::collection($this->sections),
             "visitor" => $this->visitor,
-            "customer" => $this->customer,
-            "customerGrade" => $grade,
+            "customer" => new CustomerResource($this->customer),
+//            "customer" => $this->customer,
+//            "customerGrade" => $grade,
             "description" => $this->description,
 
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],

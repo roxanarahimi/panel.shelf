@@ -31,7 +31,8 @@ class CustomerResource extends JsonResource
             "path_code" => $this->path_code,
             "path_description" => $this->path_description,
             "scores" => new CustomerGradeScoreResource($this->scores),
-            "forms" =>  FormResource::collection($this->forms),
+//            "forms" =>  FormResource::collection($this->forms),
+            "forms" =>  $this->forms,
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],
             "updated_at" => explode(' ',(new DateController)->toPersian($this->updated_at))[0],
         ];
