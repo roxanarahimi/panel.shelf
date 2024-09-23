@@ -128,7 +128,7 @@ export default {
                         let date = (i == 0 && j == 0) ? this.data.created_at : ''
                         let code = (i == 0 && j == 0) ? this.data.customer.code : ''
                         let name = (i == 0 && j == 0) ? this.data.customer.name : ''
-                        let grade = (i == 0 && j == 0) ? this.data.customer.scores?.grade : ''
+                        let grade = (i == 0 && j == 0) ? this.data.customerGrade : ''
                         let visitor = (i == 0 && j == 0) ? this.data.visitor.name : ''
                         let space = j == 0 ? item.space : ''
                         let layout = j == 0 ? item.layout : ''

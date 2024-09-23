@@ -202,7 +202,7 @@ export default {
                                 let date = (i == 0 && j == 0) ? form.created_at : ''
                                 let code = (i == 0 && j == 0) ? form.customer.code : ''
                                 let name = (i == 0 && j == 0) ? form.customer.name : ''
-                                let grade = (i == 0 && j == 0) ? form.customer.scores?.grade : ''
+                                let grade = (i == 0 && j == 0) ? form.customerGrade : ''
                                 let visitor = (i == 0 && j == 0) ? form.visitor.name : ''
                                 let space = j == 0 ? item.space : ''
                                 let layout = j == 0 ? item.layout : ''
