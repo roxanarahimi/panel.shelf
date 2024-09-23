@@ -16,7 +16,7 @@ class FormSection extends Model
     }
     public function skus()
     {
-        return $this->hasMany(FormSectionSku::class, 'form_section_id', 'id');
+        return $this->hasMany(FormSectionSku::class, 'form_section_id', 'id')->orderBy('id');
     }
     public function skuCategory()
     {

@@ -20,7 +20,7 @@ class Form extends Model
     }
      public function sections()
     {
-        return $this->hasMany(FormSection::class, 'form_id', 'id');
+        return $this->hasMany(FormSection::class, 'form_id', 'id')->orderBy('id');
     }
 
 }
