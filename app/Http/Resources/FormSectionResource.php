@@ -29,8 +29,10 @@ class FormSectionResource extends JsonResource
             "distribute_price" => $this->distribute_price,
             "image" => $this->image,
 
-            "skuCategory" => new SkuCategoryResource($this->skuCategory),
-            "brand" => new BrandResource($this->brand),
+//            "skuCategory" => new SkuCategoryResource($this->skuCategory),
+            "skuCategory" => $this->skuCategory,
+//            "brand" => new BrandResource($this->brand),
+            "brand" => $this->brand,
             "skus" => FormSectionSkuResource::collection($this->skus),
 
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],

@@ -22,8 +22,6 @@ class FormResource extends JsonResource
             "sections" => FormSectionResource::collection($this->sections),
             "visitor" => $this->visitor,
             "customer" => new CustomerResource($this->customer),
-//            "customer" => $this->customer,
-//            "customerGrade" => $grade,
             "description" => $this->description,
 
             "created_at" => explode(' ',(new DateController)->toPersian($this->created_at))[0],
