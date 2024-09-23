@@ -20,14 +20,15 @@ class FormController extends Controller
     {
         try {
             $perPage = $request['perPage'];
-            $data = Form::orderByDesc('id');
-//                ->where('visitor_id', $request['visitor_id'] )
+
               if (isset($request['date']) && $request['date'] !== ''){
                   $date = explode(',',$request['date']);
-                  $data = $data->whereDate('created_at','>=',$date[0])
-                      ->whereDate('created_at','<=',$date[1]);
+                  $data = Form::orderByDesc('id')->whereDate('created_at','>=',$date[0])
+                      ->whereDate('created_at','<=',$date[1])->paginate($perPage);
+              }else{
+                  $data = Form::orderByDesc('id')->paginate($perPage);
               }
-                $data = $data->paginate($perPage);
+
             $pages_count = ceil($data->total() / $perPage);
             $labels = [];
             for ($i = 1; $i <= $pages_count; $i++) {
